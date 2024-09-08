@@ -18,4 +18,6 @@ void restAction(Player& player);
 
 void trainingAction(Player& player);
 
-void adventureAction(Player player);
+void adventureAction(Player& player);
+
+void handleVictory(Player& player, Enemy& enemy);

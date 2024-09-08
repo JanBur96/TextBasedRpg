@@ -5,12 +5,12 @@
 class Mage : public Player {
 public:
     Mage(const std::string& name, int maxHealth, int strength, int maxMana, int maxEnergy, int money, int defense, const std::string& location)
-        : Player(name, "Mage", 1, maxHealth, strength, maxMana, maxEnergy, money, defense, location)
+        : Player(name, "Mage", 1, maxHealth, strength, maxMana, maxEnergy, money, defense, 0, location)
     {
 		initializeMage();
     }
 
-    void levelUp()
+    void levelUp() override
 	{
 		m_level++;
 		m_maxHealth += 5;
@@ -21,6 +21,7 @@ public:
 		m_maxEnergy += 5;
 		m_energy = m_maxEnergy;
 		m_defense += 1;
+		m_experience = 0;
 
 		std::cout << "You have leveled up! You are now level " << m_level << "!" << std::endl;
 	}
@@ -41,6 +42,6 @@ private:
 
     void initializeSkills()
     {
-        addSkill(Skill("Fireball", 1, 7, 5));
+        addSkill(Skill("Fireball", 1, 18, 10));
     }
 };

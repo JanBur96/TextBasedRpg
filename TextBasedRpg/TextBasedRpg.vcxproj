@@ -105,6 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,24 +129,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Actions.cpp" />
-    <ClCompile Include="CharacterClass.h" />
-    <ClCompile Include="DataIO.cpp" />
-    <ClCompile Include="TextBasedRpg.cpp" />
+    <ClCompile Include="src\Actions.cpp" />
+    <ClCompile Include="src\enemies\CaveEnemies.cpp" />
+    <ClCompile Include="include\CharacterClass.h" />
+    <ClCompile Include="src\DataIO.cpp" />
+    <ClCompile Include="src\enemies\DesertEnemies.cpp" />
+    <ClCompile Include="src\enemies\Enemy.cpp" />
+    <ClCompile Include="src\enemies\ForestEnemies.cpp" />
+    <ClCompile Include="src\enemies\MountainEnemies.cpp" />
+    <ClCompile Include="src\TextBasedRpg.cpp" />
+    <ClCompile Include="src\Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Actions.h" />
-    <ClInclude Include="DataIO.h" />
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="EnemyFactory.h" />
-    <ClInclude Include="EnemyType.h" />
-    <ClInclude Include="Inventory.h" />
-    <ClInclude Include="Mage.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="PlayerChoice.h" />
-    <ClInclude Include="Rogue.h" />
-    <ClInclude Include="Skill.h" />
-    <ClInclude Include="Warrior.h" />
+    <ClInclude Include="include\Actions.h" />
+    <ClInclude Include="include\AdventureLocation.h" />
+    <ClInclude Include="include\enemies\CaveEnemies.h" />
+    <ClInclude Include="include\DataIO.h" />
+    <ClInclude Include="include\enemies\DesertEnemies.h" />
+    <ClInclude Include="include\enemies\Enemies.h" />
+    <ClInclude Include="include\enemies\Enemy.h" />
+    <ClInclude Include="include\enemies\EnemyFactory.h" />
+    <ClInclude Include="include\enemies\EnemyType.h" />
+    <ClInclude Include="include\enemies\ForestEnemies.h" />
+    <ClInclude Include="include\GameConstants.h" />
+    <ClInclude Include="include\Inventory.h" />
+    <ClInclude Include="include\Mage.h" />
+    <ClInclude Include="include\enemies\MountainEnemies.h" />
+    <ClInclude Include="include\Player.h" />
+    <ClInclude Include="include\PlayerChoice.h" />
+    <ClInclude Include="include\Rogue.h" />
+    <ClInclude Include="include\Skill.h" />
+    <ClInclude Include="include\Utility.h" />
+    <ClInclude Include="include\Warrior.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

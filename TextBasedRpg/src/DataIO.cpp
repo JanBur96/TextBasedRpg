@@ -17,7 +17,7 @@ void printSlowly(const std::string& text, int milliseconds = 1) {
     std::cout << std::endl;
 }
 
-void welcomeMessage() {
+void printWelcomeMessage() {
     std::cout << "\n\n";
     std::cout << "****************************************************\n";
     std::cout << "*                                                  *\n";
@@ -35,6 +35,23 @@ void welcomeMessage() {
     printSlowly("Your epic journey is about to begin!");
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     std::cout << "\n---------------------------------------------------- \n\n";
+}
+
+void printGetCharacterNameMessage()
+{
+    std::cout << "A new adventure awaits you!" << std::endl;
+    std::cout << "How is your character called?" << std::endl;
+    std::cout << "Enter your character's name (max. 30 characters): ";
+    std::cout << std::flush;
+}
+
+void printGetCharacterClassMessage()
+{
+    std::cout << "A hero needs a specialization!" << std::endl;
+    std::cout << "Choose your character's class:" << std::endl;
+    std::cout << "1. Warrior \n" << "2. Rogue \n" << "3. Mage \n";
+    std::cout << "Who do you select (type 1-3): ";
+    std::cout << std::flush;
 }
 
 void printDivider(int emptyLinesBefore, int emptyLinesAfter, bool clearScreen)

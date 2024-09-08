@@ -13,57 +13,114 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Enemies">
+      <UniqueIdentifier>{3e8c1147-9483-4815-9a18-be7ae53865ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemies">
+      <UniqueIdentifier>{1bebb063-293c-4dd0-806d-0eea7a5844a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PlayerClasses">
+      <UniqueIdentifier>{8643c2af-6e91-4e3f-bd6b-6c9dbd0b26dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shared">
+      <UniqueIdentifier>{78fd3381-ea6f-4051-8516-0da7b03b7297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NewFilter1">
+      <UniqueIdentifier>{01a7b2ee-b6e6-483d-9831-1127d24d07c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TextBasedRpg.cpp">
+    <ClCompile Include="src\TextBasedRpg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DataIO.cpp">
+    <ClCompile Include="src\DataIO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CharacterClass.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Actions.cpp">
+    <ClCompile Include="src\Actions.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\enemies\ForestEnemies.cpp">
+      <Filter>Source Files\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="src\enemies\CaveEnemies.cpp">
+      <Filter>Source Files\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="src\enemies\DesertEnemies.cpp">
+      <Filter>Source Files\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="src\enemies\MountainEnemies.cpp">
+      <Filter>Source Files\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="src\enemies\Enemy.cpp">
+      <Filter>Source Files\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="include\CharacterClass.h">
+      <Filter>Header Files\PlayerClasses</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DataIO.h">
+    <ClInclude Include="include\DataIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="include\PlayerChoice.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerChoice.h">
+    <ClInclude Include="include\Actions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Actions.h">
+    <ClInclude Include="include\Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Skill.h">
+    <ClInclude Include="include\GameConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Warrior.h">
+    <ClInclude Include="include\AdventureLocation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Rogue.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\enemies\Enemy.h">
+      <Filter>Header Files\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Mage.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\enemies\EnemyFactory.h">
+      <Filter>Header Files\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Inventory.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\enemies\EnemyType.h">
+      <Filter>Header Files\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\enemies\ForestEnemies.h">
+      <Filter>Header Files\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyType.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\enemies\Enemies.h">
+      <Filter>Header Files\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyFactory.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\enemies\CaveEnemies.h">
+      <Filter>Header Files\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="include\enemies\DesertEnemies.h">
+      <Filter>Header Files\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="include\enemies\MountainEnemies.h">
+      <Filter>Header Files\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mage.h">
+      <Filter>Header Files\PlayerClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Rogue.h">
+      <Filter>Header Files\PlayerClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Player.h">
+      <Filter>Header Files\PlayerClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Warrior.h">
+      <Filter>Header Files\PlayerClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Skill.h">
+      <Filter>Header Files\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Inventory.h">
+      <Filter>Header Files\Shared</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

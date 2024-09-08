@@ -1,8 +1,9 @@
 #include <iostream>
 #include "Actions.h"
 #include "DataIo.h"
-#include "EnemyFactory.h"
-#include "Enemy.h"
+#include "enemies/EnemyFactory.h"
+#include "enemies/Enemy.h"
+#include "Utility.h"
 
 int calculateTrainingCost(int currentAttributeHeight, int basePrice, double scalingFactor) {
     return static_cast<int>(basePrice * std::pow(scalingFactor, currentAttributeHeight - 1));
@@ -19,6 +20,7 @@ void viewCharacterAction(Player& player)
     std::cout << "Mana: " << player.getMana() << "/" << player.getMaxMana() << std::endl;
     std::cout << "Strength: " << player.getStrength() << std::endl;
     std::cout << "Defense: " << player.getDefense() << std::endl;
+    std::cout << "Experience: " << player.getExperience() << "/" << player.getExperienceForNextLevel() << std::endl;
     std::cout << "Location: " << player.getLocation() << std::endl;
     std::cout << "Skills: " << std::endl;
     for (Skill skill : player.getSkills())
@@ -97,6 +99,7 @@ void restAction(Player& player)
     if (restChoice == 1) 
     {
         std::cout << "You slept well and are well rested now." << std::endl;
+        player.rest();
         player.payMoney(7);
     }
     else if(restChoice == 2) {
@@ -186,42 +189,143 @@ void trainingAction(Player& player)
 
 void displayCombatStatus(Player& player, Enemy& enemy)
 {
-
+    std::cout << "Player HP: " << player.getHealth() << "/" << player.getMaxHealth() << std::endl;
+    std::cout << "Player MP: " << player.getMana() << "/" << player.getMaxMana() << std::endl;
+    std::cout << "Enemy HP: " << enemy.getHealth() << "/" << "???" << std::endl;
 }
 
 bool playerTurn(Player& player, Enemy& enemy)
 {
+    std::cout << "It's your turn! What do you want to do: " << std::endl;
+    std::cout << "1. Attack (Melee)" << std::endl;
+    std::cout << "2. Attack (Skill)" << std::endl;
+    std::cout << "3. Defend" << std::endl;
+    std::cout << "4. Use Item" << std::endl;
+    std::cout << "5. Try To Flee" << std::endl;
 
+    int playerChoice{};
+    std::cin >> playerChoice;
+
+    switch (playerChoice)
+	{
+    case 1:
+        printDivider(1, 2);
+        player.attackMelee(enemy);
+		break;
+    case 2:
+		player.attackSkill(enemy);
+        break;
+	case 3:
+        //player.defend();
+		break;
+    case 4:
+	    //player.useItem();
+        break;
+    case 5:
+        //player.tryToFlee();
+		break;
+    default:
+		std::cout << "Invalid choice. Please try again." << std::endl;
+		break;
+    }
+
+    if (enemy.getHealth() > 0)
+    {
+        return true;
+    }
+    else if (enemy.getHealth() <= 0)
+    {
+        handleVictory(player, enemy);
+        return false;
+    }
 }
 
 bool enemyTurn(Player& player, Enemy& enemy)
 {
+    enemy.performAttack();
+    player.takeDamage(enemy.getAttack());
 
+    if (player.getHealth() > 0 && enemy.getHealth() > 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void handleVictory(Player& player, Enemy& enemy)
 {
+    enemy.getDrops();
+    player.gainGold(enemy.getGold());
+    player.gainExperience(enemy.getExperience());
+    std::cout << "You won!" << std::endl;
 
+    if (player.canLevelUp())
+	{
+		std::cout << "Level up!" << std::endl;
+        std::cout << "You are level " << player.getLevel() << " now." << std::endl;
+        player.levelUp();
+	}
+    std::cout << "Press 1 to continue." << std::endl;
+    
+    int temp{};
+    std::cin >> temp;
+    return;
 }
 
-void handleDefeat(Player& player)
+//void handleDefeat(Player& player)
+//{
+//
+//}
+
+int chooseAdventureDirection()
 {
+    while (true)
+    {
+	    std::cout << "Where do you want to go?" << std::endl;
+	    std::cout << "1. Forest (Delia)" << std::endl;
+	    std::cout << "2. Cave (Way to Zenonia)" << std::endl;
+	    std::cout << "3. Desert (Way to the Mountains)" << std::endl;
+	    std::cout << "4. Back to main menu" << std::endl;
+        std::cout << "Enter your choice (1-4):";
+        std::cout << std::flush;
 
+	    int adventureChoice{getNumericInput()};
+
+        if (adventureChoice > 4)
+        {
+		    std::cout << "Invalid choice. Please try again." << std::endl;
+            continue;
+	    }
+
+	    return adventureChoice;
+    }
 }
+
 
 void adventureAction(Player& player)
 {
-    auto enemy{ EnemyFactory::generateRandomEnemy() };
+    printDivider(1, 2, true);
+
+    int adventureDirectionChoice{ chooseAdventureDirection() };
+
+    AdventureLocation location = static_cast<AdventureLocation>(adventureDirectionChoice);
+    auto enemy{ EnemyFactory::generateRandomEnemy(location) };
 
     bool combatOngoing{ true };
 
     while (combatOngoing)
     {
+        printDivider(1, 2);
         displayCombatStatus(player, *enemy);
 
+        printDivider(1, 2);
         combatOngoing = playerTurn(player, *enemy);
         if (!combatOngoing) break;
 
+        printDivider(1, 2);
         combatOngoing = enemyTurn(player, *enemy);
         if (!combatOngoing) break;
     }

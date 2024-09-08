@@ -2,12 +2,13 @@
 #include <string>
 
 class Skill {
-public:
+private:
     std::string name;
     int level;
     int damage;
     int manaCost;
 
+public:
     Skill(const std::string& name, int level, int damage, int manaCost) :
         name(name),
         level(level),
