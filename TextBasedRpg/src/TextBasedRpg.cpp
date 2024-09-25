@@ -1,16 +1,16 @@
 ﻿#include <iostream>
 #include <string>
 
-#include "DataIO.h"
-#include "Player.h"
-#include "PlayerChoice.h"
-#include "CharacterClass.h"
-#include "Actions.h"
-#include "Warrior.h"
-#include "Mage.h"
-#include "Rogue.h"
-#include "Utility.h"
-#include "GameConstants.h"
+#include "common/DataIO.h"
+#include "player/Player.h"
+#include "gameMechanics/PlayerChoice.h"
+#include "player/CharacterClass.h"
+#include "gameMechanics/actions/Actions.h"
+#include "player/Warrior.h"
+#include "player/Mage.h"
+#include "player/Rogue.h"
+#include "common/Utility.h"
+#include "shared/GameConstants.h"
 
 PlayerChoice showActions()
 {
@@ -103,12 +103,12 @@ Player* initializeGame()
     switch (characterClass)
     {
         case CharacterClass::Warrior:
-            return new Warrior(name, HEALTH, WARRIOR_STRENGTH, MANA, ENERGY, MONEY, DEFENSE, STARTING_LOCATION);
+            return new Warrior(name, HEALTH, WARRIOR_STRENGTH, MANA, ENERGY, MONEY, DEFENSE);
         case CharacterClass::Rogue:
-            return new Rogue(name, HEALTH, ROGUE_STRENGTH, MANA, ENERGY, MONEY, DEFENSE, STARTING_LOCATION);
+            return new Rogue(name, HEALTH, ROGUE_STRENGTH, MANA, ENERGY, MONEY, DEFENSE);
         case CharacterClass::Mage:
-            return new Mage(name, HEALTH, MAGE_STRENGTH, MANA, ENERGY, MONEY, DEFENSE, STARTING_LOCATION);
-        }
+            return new Mage(name, HEALTH, MAGE_STRENGTH, MANA, ENERGY, MONEY, DEFENSE);
+    }
     throw std::runtime_error("Unexpected character class");
 }
 

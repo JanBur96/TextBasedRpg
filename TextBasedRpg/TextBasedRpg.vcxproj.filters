@@ -33,13 +33,13 @@
     <ClCompile Include="src\TextBasedRpg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\DataIO.cpp">
+    <ClCompile Include="src\common\DataIO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Actions.cpp">
+    <ClCompile Include="src\gameMechanics\Actions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Utility.cpp">
+    <ClCompile Include="src\common\Utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\enemies\ForestEnemies.cpp">
@@ -57,27 +57,42 @@
     <ClCompile Include="src\enemies\Enemy.cpp">
       <Filter>Source Files\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="include\CharacterClass.h">
+    <ClCompile Include="include\player\CharacterClass.h">
       <Filter>Header Files\PlayerClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameMechanics\BattleSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\world\GameWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\world\AdventureDirection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Consumables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameMechanics\actions\restAction.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\DataIO.h">
+    <ClInclude Include="include\common\DataIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\PlayerChoice.h">
+    <ClInclude Include="include\gameMechanics\PlayerChoice.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Actions.h">
+    <ClInclude Include="include\gameMechanics\actions\Actions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Utility.h">
+    <ClInclude Include="include\common\Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameConstants.h">
+    <ClInclude Include="include\shared\GameConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\AdventureLocation.h">
+    <ClInclude Include="include\world\AdventureDirection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\enemies\Enemy.h">
@@ -104,23 +119,62 @@
     <ClInclude Include="include\enemies\MountainEnemies.h">
       <Filter>Header Files\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="include\Mage.h">
+    <ClInclude Include="include\player\Mage.h">
       <Filter>Header Files\PlayerClasses</Filter>
     </ClInclude>
-    <ClInclude Include="include\Rogue.h">
+    <ClInclude Include="include\player\Rogue.h">
       <Filter>Header Files\PlayerClasses</Filter>
     </ClInclude>
-    <ClInclude Include="include\Player.h">
+    <ClInclude Include="include\player\Player.h">
       <Filter>Header Files\PlayerClasses</Filter>
     </ClInclude>
-    <ClInclude Include="include\Warrior.h">
+    <ClInclude Include="include\player\Warrior.h">
       <Filter>Header Files\PlayerClasses</Filter>
     </ClInclude>
-    <ClInclude Include="include\Skill.h">
+    <ClInclude Include="include\shared\Skill.h">
       <Filter>Header Files\Shared</Filter>
     </ClInclude>
-    <ClInclude Include="include\Inventory.h">
+    <ClInclude Include="include\player\Inventory.h">
       <Filter>Header Files\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gameMechanics\BattleSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\world\GameWorld.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\player\InventoryItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\player\Consumables.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gameMechanics\actions\viewCharacterAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gameMechanics\actions\viewInventoryAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gameMechanics\actions\restAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gameMechanics\actions\trainingAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gameMechanics\actions\adventureAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameMechanics\actions\viewInventoryAction.cpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameMechanics\actions\adventureAction.cpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameMechanics\actions\trainingAction.cpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gameMechanics\actions\viewCharacterAction.cpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

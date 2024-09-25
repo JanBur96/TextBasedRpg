@@ -5,8 +5,8 @@
 #include "enemies/EnemyType.h"
 #include "enemies/Enemy.h"
 #include "enemies/Enemies.h"
-#include "AdventureLocation.h"
-#include "Utility.h"
+#include "world/AdventureDirection.h"
+#include "common/Utility.h"
 
 class EnemyFactory {
 public:
@@ -31,19 +31,19 @@ public:
         }
     }
 
-    static std::unique_ptr<Enemy> generateRandomEnemy(AdventureLocation adventureLocation)
+    static std::unique_ptr<Enemy> generateRandomEnemy(AdventureDirection adventureLocation)
     {
         std::vector<EnemyType> enemyPool;
 
         switch (adventureLocation)
         {
-            case AdventureLocation::Forest:
+            case AdventureDirection::Forest:
             {
                 enemyPool = { EnemyType::Goblin, EnemyType::Wolf, EnemyType::Bear };
                 EnemyType randomType = enemyPool[generateRandomNumberInRange(0, enemyPool.size() - 1)];
 			    return EnemyFactory::createEnemy(randomType);
             }
-            case AdventureLocation::Cave:
+            case AdventureDirection::Cave:
             {
                 enemyPool = { EnemyType::Orc, EnemyType::Zombie, EnemyType::Skeleton };
                 EnemyType randomType = enemyPool[generateRandomNumberInRange(0, enemyPool.size() - 1)];

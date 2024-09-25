@@ -1,14 +1,18 @@
 #pragma once
-#include "Player.h"
-#include "Skill.h"
+#include "player/Player.h"
+#include "shared/Skill.h"
+#include "player/Consumables.h"
+#include <memory>
+#include "player/Inventory.h"
+#include "player/InventoryItem.h"
 
 class Mage : public Player {
 public:
-    Mage(const std::string& name, int maxHealth, int strength, int maxMana, int maxEnergy, int money, int defense, const std::string& location)
-        : Player(name, "Mage", 1, maxHealth, strength, maxMana, maxEnergy, money, defense, 0, location)
-    {
+	Mage(const std::string& name, int maxHealth, int strength, int maxMana, int maxEnergy, int money, int defense)
+		: Player(name, "Mage", 1, maxHealth, strength, maxMana, maxEnergy, money, defense, 0)
+	{
 		initializeMage();
-    }
+	}
 
     void levelUp() override
 	{
@@ -35,9 +39,8 @@ private:
 
 	void initializeInventory()
 	{
-		addInventoryItem(InventoryItem("Health Potion", "Potion", 10));
-		addInventoryItem(InventoryItem("Mana Potion", "Potion", 10));
-		addInventoryItem(InventoryItem("Staff", "Weapon", 20));
+		m_inventory.addItem(std::make_unique<HealthPotion>("Small Potion", 5, 2, 30));
+		//addInventoryItem(InventoryItem("Mana Potion", "Potion", 10));
 	}
 
     void initializeSkills()

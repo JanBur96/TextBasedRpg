@@ -1,10 +1,12 @@
 #pragma once
 #include <vector>
 
-#include "CharacterClass.h"
-#include "Skill.h"
-#include "Inventory.h"
+#include "player/CharacterClass.h"
+#include "shared/Skill.h"
 #include "enemies/Enemy.h"
+#include "Inventory.h"
+#include <iostream>
+#include <memory>
 
 class Player {
 protected:
@@ -21,12 +23,11 @@ protected:
     int m_maxEnergy;
     int m_defense;
     int m_experience;
-    std::string m_location;
     std::vector<Skill> skills;
     Inventory m_inventory;
 
 public:
-    Player(const std::string& name, const std::string& characterClass, int level, int maxHealth, int strength, int maxMana, int maxEnergy, int money, int defense, int experience, std::string location, Inventory inventory = Inventory()) :
+    Player(const std::string& name, const std::string& characterClass, int level, int maxHealth, int strength, int maxMana, int maxEnergy, int money, int defense, int experience, Inventory inventory = Inventory()) :
         m_name(name),
         m_characterClass(characterClass),
         m_level(level),
@@ -40,26 +41,30 @@ public:
         m_money(money),
         m_defense(defense),
         m_experience(experience),
-        m_location(location),
-        m_inventory(inventory)
+        m_inventory(std::move(inventory))
     {}
 
     virtual ~Player() {}
 
+    void restoreHealth(int amount)
+	{
+		m_health = std::min(m_maxHealth, m_health + amount);
+	}
+
+    void restoreMana(int amount)
+    {
+        m_mana = std::min(m_maxMana, m_mana + amount);
+	}
+
     void setName(const std::string& name)
     {
-        this->m_name = name;
+        m_name = name;
     }
 
     void addSkill(const Skill& skill)
     {
         skills.push_back(skill);
     }
-
-    void addInventoryItem(const InventoryItem& item)
-	{
-		m_inventory.addItem(item);
-	}
 
     int experienceForNextLevel()
 	{
@@ -73,18 +78,18 @@ public:
 
     void rest()
     {
-        this->m_mana = m_maxMana;
-        this->m_energy = m_maxEnergy;
-        this->m_health = m_maxHealth;
+        m_mana = m_maxMana;
+        m_energy = m_maxEnergy;
+        m_health = m_maxHealth;
     }
 
     virtual void levelUp() = 0;
 
     bool payMoney(int amount)
     {
-        if (this->m_money >= amount)
+        if (m_money >= amount)
         {
-            this->m_money -= amount;
+            m_money -= amount;
             return true;
         }
 
@@ -93,13 +98,13 @@ public:
 
     void increaseStrength(int increase)
     {
-        this->m_strength += increase;
+        m_strength += increase;
     }
 
     void attackMelee(Enemy& enemy)
     {
         // TODO: Formula
-        int damage = this->m_strength - enemy.getDefense();
+        int damage = m_strength - enemy.getDefense();
 		enemy.takeDamage(damage);
 
         std::cout << "You've attacked with your Melee attack!" << std::endl;
@@ -117,33 +122,33 @@ public:
         int choice;
         std::cin >> choice;
 
-        Skill chosenSkill{ this->skills[choice - 1] };
+        Skill chosenSkill{ skills[choice - 1] };
         // TODO Formula
 
-        if (this->m_mana >= chosenSkill.getManaCost())
+        if (m_mana >= chosenSkill.getManaCost())
         {
             enemy.takeDamage(chosenSkill.getDamage());
-            this->m_mana -= chosenSkill.getManaCost();
+            m_mana -= chosenSkill.getManaCost();
         }
 
     }
 
     void takeDamage(int damage)
     {
-        int damageTaken = std::max(1, damage - this->getDefense());
-        this->m_health = std::max(0, this->m_health - damageTaken);
+        int damageTaken = std::max(1, damage - getDefense());
+        m_health = std::max(0, m_health - damageTaken);
 
         std::cout << "You've taken " << damageTaken << " damage." << std::endl;
     }
 
     void gainExperience(int experience)
 	{
-		this->m_experience += experience;
+		m_experience += experience;
 	}
 
     void gainGold(int gold)
     {
-        this->m_money += gold;
+        m_money += gold;
     }
 
     std::string getName() const { return m_name; }
@@ -160,7 +165,6 @@ public:
     int getDefense() const { return m_defense; }
     int getExperience() const { return m_experience; }
     int getExperienceForNextLevel() { return experienceForNextLevel(); }
-    std::string getLocation() const { return m_location; }
     const std::vector<Skill>& getSkills() const { return skills; }
     Inventory& getInventory() { return m_inventory; }
 };
