@@ -10,7 +10,7 @@ void viewInventoryAction(Player& player)
     if (inventoryItems.empty())
     {
         printDivider(1, 2);
-        std::cout << "Your inventory is empty." << std::endl;
+        std::cout << "Your inventory is empty." << '\n';
         return;
     }
     else
@@ -19,22 +19,22 @@ void viewInventoryAction(Player& player)
         {
             printDivider(1, 2);
             int itemIndex{ 1 };
-            std::cout << "View Inventory" << std::endl;
-            std::cout << "Gold: " << player.getGold() << std::endl;
-            std::cout << "Inventory: " << std::endl;
+            std::cout << "View Inventory" << '\n';
+            std::cout << "Gold: " << player.getGold() << '\n';
+            std::cout << "Inventory: " << '\n';
             for (const auto& item : player.getInventory().getItems())
             {
-                std::cout << itemIndex << "." << std::endl;
+                std::cout << itemIndex << "." << '\n';
                 item->printItem();
                 itemIndex++;
             }
 
             printDivider(1, 2);
 
-            std::cout << "What do you want to do?" << std::endl;
-            std::cout << "1. Use item" << std::endl;
-            std::cout << "2. Drop item" << std::endl;
-            std::cout << "3. Back to main menu" << std::endl;
+            std::cout << "What do you want to do?" << '\n';
+            std::cout << "1. Use item" << '\n';
+            std::cout << "2. Drop item" << '\n';
+            std::cout << "3. Back to main menu" << '\n';
 
             int viewInventoryChoice{ getNumericInput() };
 

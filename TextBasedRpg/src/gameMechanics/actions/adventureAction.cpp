@@ -13,7 +13,7 @@ void adventureAction(Player& player)
     BattleSystem battleSystem;
     GameWorld gameWorld;
 
-    std::cout << "You are currently in the " << getAdventureDirectionString(gameWorld.getCurrentAdventureDirection()) << "." << std::endl;
+    std::cout << "You are currently in the " << getAdventureDirectionString(gameWorld.getCurrentAdventureDirection()) << "." << '\n';
 
     AdventureDirection location = gameWorld.chooseAdventureDirection();
     auto enemy{ EnemyFactory::generateRandomEnemy(location) };

@@ -14,12 +14,12 @@ bool BattleSystem::handleFleeAttempt()
 
 bool BattleSystem::handlePlayerTurn(Player &player, Enemy &enemy)
 {
-    std::cout << "It's your turn! What do you want to do: " << std::endl;
-    std::cout << "1. Attack (Melee)" << std::endl;
-    std::cout << "2. Attack (Skill)" << std::endl;
-    std::cout << "3. Defend" << std::endl;
-    std::cout << "4. Use Item" << std::endl;
-    std::cout << "5. Try To Flee" << std::endl;
+    std::cout << "It's your turn! What do you want to do: " << '\n';
+    std::cout << "1. Attack (Melee)" << '\n';
+    std::cout << "2. Attack (Skill)" << '\n';
+    std::cout << "3. Defend" << '\n';
+    std::cout << "4. Use Item" << '\n';
+    std::cout << "5. Try To Flee" << '\n';
 
     int playerChoice{};
     std::cin >> playerChoice;
@@ -42,12 +42,12 @@ bool BattleSystem::handlePlayerTurn(Player &player, Enemy &enemy)
     case 5:
         if (handleFleeAttempt())
         {
-            std::cout << "You successfully fled!" << std::endl;
+            std::cout << "You successfully fled!" << '\n';
             return false;
         }
         break;
     default:
-        std::cout << "Invalid choice. Please try again." << std::endl;
+        std::cout << "Invalid choice. Please try again." << '\n';
         break;
     }
 
@@ -78,15 +78,15 @@ void BattleSystem::handleVictory(Player &player, Enemy &enemy)
     enemy.getDrops();
     player.gainGold(enemy.getGold());
     player.gainExperience(enemy.getExperience());
-    std::cout << "You won!" << std::endl;
+    std::cout << "You won!" << '\n';
 
     if (player.canLevelUp())
     {
-        std::cout << "Level up!" << std::endl;
-        std::cout << "You are level " << player.getLevel() << " now." << std::endl;
+        std::cout << "Level up!" << '\n';
+        std::cout << "You are level " << player.getLevel() << " now." << '\n';
         player.levelUp();
     }
-    std::cout << "Press 1 to continue." << std::endl;
+    std::cout << "Press 1 to continue." << '\n';
 
     int temp{};
     std::cin >> temp;
@@ -96,12 +96,12 @@ void BattleSystem::handleVictory(Player &player, Enemy &enemy)
 void BattleSystem::handleDefeat(Player& player)
 {
     //todo implement
-    std::cout << "Defeated!" << std::endl;
+    std::cout << "Defeated!" << '\n';
 }
 
 void BattleSystem::displayCombatStatus(Player& player, Enemy& enemy)
 {
-    std::cout << "Player HP: " << player.getHealth() << "/" << player.getMaxHealth() << std::endl;
-    std::cout << "Player MP: " << player.getMana() << "/" << player.getMaxMana() << std::endl;
-    std::cout << "Enemy HP: " << enemy.getHealth() << "/" << "???" << std::endl;
+    std::cout << "Player HP: " << player.getHealth() << "/" << player.getMaxHealth() << '\n';
+    std::cout << "Player MP: " << player.getMana() << "/" << player.getMaxMana() << '\n';
+    std::cout << "Enemy HP: " << enemy.getHealth() << "/" << "???" << '\n';
 }

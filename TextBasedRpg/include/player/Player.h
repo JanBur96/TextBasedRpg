@@ -108,16 +108,16 @@ public:
         damage = std::max(1, damage);
 		enemy.takeDamage(damage);
 
-        std::cout << "You've attacked with your Melee attack!" << std::endl;
-        std::cout << "The enemy has taken " << damage << " damage." << std::endl;
+        std::cout << "You've attacked with your Melee attack!" << '\n';
+        std::cout << "The enemy has taken " << damage << " damage." << '\n';
     }
 
     void attackSkill(Enemy& enemy)
     {
-        std::cout << "Which skill do you want to use?" << std::endl;
+        std::cout << "Which skill do you want to use?" << '\n';
         for (int i = 0; i < skills.size(); i++)
 		{
-			std::cout << i + 1 << ". " << skills[i].getName() << std::endl;
+			std::cout << i + 1 << ". " << skills[i].getName() << '\n';
 		}
 
         int choice;
@@ -139,7 +139,7 @@ public:
         int damageTaken = std::max(1, damage - getDefense());
         m_health = std::max(0, m_health - damageTaken);
 
-        std::cout << "You've taken " << damageTaken << " damage." << std::endl;
+        std::cout << "You've taken " << damageTaken << " damage." << '\n';
     }
 
     void gainExperience(int experience)

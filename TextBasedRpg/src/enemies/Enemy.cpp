@@ -5,7 +5,7 @@ Enemy::Enemy(std::string name, int health, int mana, int attack, int defense, in
     : name(name), health(health), mana(mana), attack(attack), defense(defense), experience(experience), gold(gold), drops(drops) {}
 
 void Enemy::performAttack() {
-    std::cout << "Enemy attacks!" << std::endl;
+    std::cout << "Enemy attacks!" << '\n';
 }
 
 void Enemy::takeDamage(int damage) {
