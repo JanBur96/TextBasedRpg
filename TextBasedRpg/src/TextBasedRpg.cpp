@@ -5,12 +5,13 @@
 #include "player/Player.h"
 #include "gameMechanics/PlayerChoice.h"
 #include "player/CharacterClass.h"
-#include "gameMechanics/actions/Actions.h"
 #include "player/Warrior.h"
 #include "player/Mage.h"
 #include "player/Rogue.h"
 #include "common/Utility.h"
 #include "shared/GameConstants.h"
+#include "gameMechanics/actions/adventureAction.h"
+#include "gameMechanics/actions/Actions.h"
 
 PlayerChoice showActions()
 {
@@ -114,6 +115,8 @@ Player* initializeGame()
 
 int main()
 {
+    void adventureAction(Player& player);
+
     bool playerAlive = true;
     bool gameRunning = true;
     Player* player{ initializeGame() };

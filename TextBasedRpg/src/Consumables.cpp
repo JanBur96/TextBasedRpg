@@ -1,4 +1,4 @@
-#include "player/Consumables.h"
+#include "inventory/Consumables.h"
 #include "player/Player.h"
 
 void Consumable::printItem()

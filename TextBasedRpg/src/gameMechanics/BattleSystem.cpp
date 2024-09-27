@@ -24,7 +24,7 @@ bool BattleSystem::handlePlayerTurn(Player &player, Enemy &enemy)
     std::cin >> playerChoice;
 
     switch (playerChoice)
-    {
+    {   
     case 1:
         printDivider(1, 2);
         player.attackMelee(enemy);
@@ -50,7 +50,6 @@ bool BattleSystem::handlePlayerTurn(Player &player, Enemy &enemy)
         break;
     }
 
-    std::cout << "This runs" << std::endl;
     return true;
 }
 

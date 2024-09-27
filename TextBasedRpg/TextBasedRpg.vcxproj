@@ -130,9 +130,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Consumables.cpp" />
+    <ClCompile Include="src\gameMechanics\actions\adventureAction.cpp" />
     <ClCompile Include="src\gameMechanics\actions\restAction.cpp" />
+    <ClCompile Include="src\gameMechanics\actions\trainingAction.cpp" />
+    <ClCompile Include="src\gameMechanics\actions\viewCharacterAction.cpp" />
+    <ClCompile Include="src\gameMechanics\actions\viewInventoryAction.cpp" />
     <ClCompile Include="src\world\AdventureDirection.cpp" />
-    <ClCompile Include="src\gameMechanics\Actions.cpp" />
     <ClCompile Include="src\enemies\CaveEnemies.cpp" />
     <ClCompile Include="include\player\CharacterClass.h" />
     <ClCompile Include="src\common\DataIO.cpp" />
@@ -153,8 +156,8 @@
     <ClInclude Include="include\gameMechanics\actions\viewCharacterAction.h" />
     <ClInclude Include="include\gameMechanics\actions\viewInventoryAction.h" />
     <ClInclude Include="include\gameMechanics\BattleSystem.h" />
-    <ClInclude Include="include\player\Consumables.h" />
-    <ClInclude Include="include\player\InventoryItem.h" />
+    <ClInclude Include="include\inventory\Consumables.h" />
+    <ClInclude Include="include\inventory\InventoryItem.h" />
     <ClInclude Include="include\world\AdventureDirection.h" />
     <ClInclude Include="include\enemies\CaveEnemies.h" />
     <ClInclude Include="include\common\DataIO.h" />
@@ -165,7 +168,7 @@
     <ClInclude Include="include\enemies\EnemyType.h" />
     <ClInclude Include="include\enemies\ForestEnemies.h" />
     <ClInclude Include="include\shared\GameConstants.h" />
-    <ClInclude Include="include\player\Inventory.h" />
+    <ClInclude Include="include\inventory\Inventory.h" />
     <ClInclude Include="include\player\Mage.h" />
     <ClInclude Include="include\enemies\MountainEnemies.h" />
     <ClInclude Include="include\player\Player.h" />
@@ -175,10 +178,6 @@
     <ClInclude Include="include\common\Utility.h" />
     <ClInclude Include="include\player\Warrior.h" />
     <ClInclude Include="include\world\GameWorld.h" />
-    <ClInclude Include="src\gameMechanics\actions\adventureAction.cpp" />
-    <ClInclude Include="src\gameMechanics\actions\trainingAction.cpp" />
-    <ClInclude Include="src\gameMechanics\actions\viewCharacterAction.cpp" />
-    <ClInclude Include="src\gameMechanics\actions\viewInventoryAction.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

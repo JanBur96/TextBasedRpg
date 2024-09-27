@@ -7,6 +7,7 @@
 #include "enemies/Enemies.h"
 #include "world/AdventureDirection.h"
 #include "common/Utility.h"
+#include "common/DataIO.h"
 
 class EnemyFactory {
 public:
@@ -34,6 +35,7 @@ public:
     static std::unique_ptr<Enemy> generateRandomEnemy(AdventureDirection adventureLocation)
     {
         std::vector<EnemyType> enemyPool;
+        handleClearScreen();
 
         switch (adventureLocation)
         {
@@ -49,6 +51,8 @@ public:
                 EnemyType randomType = enemyPool[generateRandomNumberInRange(0, enemyPool.size() - 1)];
                 return EnemyFactory::createEnemy(randomType);
             }
+            default:
+				throw std::invalid_argument("Unknown adventure location");  
             // TODO: Implement other Locations
         }
     }

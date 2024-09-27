@@ -1,15 +1,15 @@
 #pragma once
 #include "player/Player.h"
 #include "shared/Skill.h"
-#include "player/Consumables.h"
+#include "inventory/Consumables.h"
 #include <memory>
-#include "player/Inventory.h"
-#include "player/InventoryItem.h"
+#include "inventory/Inventory.h"
+#include "inventory/InventoryItem.h"
 
 class Mage : public Player {
 public:
-	Mage(const std::string& name, int maxHealth, int strength, int maxMana, int maxEnergy, int money, int defense)
-		: Player(name, "Mage", 1, maxHealth, strength, maxMana, maxEnergy, money, defense, 0)
+	Mage(const std::string& name, int maxHealth, int strength, int maxMana, int maxEnergy, int gold, int defense)
+		: Player(name, "Mage", 1, maxHealth, strength, maxMana, maxEnergy, gold, defense, 0)
 	{
 		initializeMage();
 	}

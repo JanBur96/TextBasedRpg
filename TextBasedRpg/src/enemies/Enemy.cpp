@@ -9,7 +9,7 @@ void Enemy::performAttack() {
 }
 
 void Enemy::takeDamage(int damage) {
-    health -= (damage - defense);
+    health -= (damage);
 }
 
 std::string Enemy::getName() const { return name; }

@@ -1,4 +1,8 @@
 #pragma once
+#include "player/Player.h"
+
 int getNumericInput();
 
-int generateRandomNumberInRange(int rangeFrom, int rangeTo);
+size_t generateRandomNumberInRange(size_t rangeFrom, size_t rangeTo);
+
+int generateInnCost(Player&, double);

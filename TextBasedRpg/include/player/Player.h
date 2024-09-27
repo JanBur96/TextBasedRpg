@@ -4,7 +4,7 @@
 #include "player/CharacterClass.h"
 #include "shared/Skill.h"
 #include "enemies/Enemy.h"
-#include "Inventory.h"
+#include "inventory/Inventory.h"
 #include <iostream>
 #include <memory>
 
@@ -18,7 +18,7 @@ protected:
     int m_strength;
     int m_mana;
     int m_maxMana;
-    int m_money;
+    int m_gold;
     int m_energy;
     int m_maxEnergy;
     int m_defense;
@@ -27,7 +27,7 @@ protected:
     Inventory m_inventory;
 
 public:
-    Player(const std::string& name, const std::string& characterClass, int level, int maxHealth, int strength, int maxMana, int maxEnergy, int money, int defense, int experience, Inventory inventory = Inventory()) :
+    Player(const std::string& name, const std::string& characterClass, int level, int maxHealth, int strength, int maxMana, int maxEnergy, int gold, int defense, int experience, Inventory inventory = Inventory()) :
         m_name(name),
         m_characterClass(characterClass),
         m_level(level),
@@ -38,7 +38,7 @@ public:
         m_mana(maxMana),
         m_maxEnergy(maxEnergy),
         m_energy(maxEnergy),
-        m_money(money),
+        m_gold(gold),
         m_defense(defense),
         m_experience(experience),
         m_inventory(std::move(inventory))
@@ -85,11 +85,11 @@ public:
 
     virtual void levelUp() = 0;
 
-    bool payMoney(int amount)
+    bool payGold(int amount)
     {
-        if (m_money >= amount)
+        if (m_gold >= amount)
         {
-            m_money -= amount;
+            m_gold -= amount;
             return true;
         }
 
@@ -105,6 +105,7 @@ public:
     {
         // TODO: Formula
         int damage = m_strength - enemy.getDefense();
+        damage = std::max(1, damage);
 		enemy.takeDamage(damage);
 
         std::cout << "You've attacked with your Melee attack!" << std::endl;
@@ -148,7 +149,7 @@ public:
 
     void gainGold(int gold)
     {
-        m_money += gold;
+        m_gold += gold;
     }
 
     std::string getName() const { return m_name; }
@@ -159,7 +160,7 @@ public:
     int getStrength() const { return m_strength; }
     int getMana() const { return m_mana; }
     int getMaxMana() const { return m_maxMana; }
-    int getMoney() const { return m_money; }
+    int getGold() const { return m_gold; }
     int getEnergy() const { return m_energy; }
     int getMaxEnergy() const { return m_maxEnergy; }
     int getDefense() const { return m_defense; }
