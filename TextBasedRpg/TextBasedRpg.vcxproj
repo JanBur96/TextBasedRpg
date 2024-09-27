@@ -131,6 +131,7 @@
   <ItemGroup>
     <ClCompile Include="src\Consumables.cpp" />
     <ClCompile Include="src\gameMechanics\actions\adventureAction.cpp" />
+    <ClCompile Include="src\gameMechanics\actions\combatInventoryAction.cpp" />
     <ClCompile Include="src\gameMechanics\actions\restAction.cpp" />
     <ClCompile Include="src\gameMechanics\actions\trainingAction.cpp" />
     <ClCompile Include="src\gameMechanics\actions\viewCharacterAction.cpp" />
@@ -151,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="include\gameMechanics\actions\Actions.h" />
     <ClInclude Include="include\gameMechanics\actions\adventureAction.h" />
+    <ClInclude Include="include\gameMechanics\actions\combatInventoryAction.h" />
     <ClInclude Include="include\gameMechanics\actions\restAction.h" />
     <ClInclude Include="include\gameMechanics\actions\trainingAction.h" />
     <ClInclude Include="include\gameMechanics\actions\viewCharacterAction.h" />

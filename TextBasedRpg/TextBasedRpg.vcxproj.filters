@@ -84,6 +84,9 @@
     <ClCompile Include="src\gameMechanics\actions\viewInventoryAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameMechanics\actions\combatInventoryAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\common\DataIO.h">
@@ -171,6 +174,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\gameMechanics\actions\adventureAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gameMechanics\actions\combatInventoryAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

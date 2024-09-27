@@ -151,7 +151,7 @@ public:
     {
         m_gold += gold;
     }
-
+    
     std::string getName() const { return m_name; }
     std::string getCharacterClass() const { return m_characterClass; }
     int getLevel() const { return m_level; }

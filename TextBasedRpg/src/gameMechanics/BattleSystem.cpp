@@ -3,6 +3,7 @@
 #include "player/Player.h"
 #include "enemies/Enemy.h"
 #include "common/DataIO.h"
+#include "gameMechanics/actions/combatInventoryAction.h"
 
 bool BattleSystem::handleFleeAttempt()
 {
@@ -36,7 +37,7 @@ bool BattleSystem::handlePlayerTurn(Player &player, Enemy &enemy)
         //player.defend();
         break;
     case 4:
-        //player.useItem();
+        combatInventoryAction(player);
         break;
     case 5:
         if (handleFleeAttempt())
