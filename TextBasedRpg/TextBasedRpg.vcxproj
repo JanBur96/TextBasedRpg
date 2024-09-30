@@ -136,6 +136,8 @@
     <ClCompile Include="src\gameMechanics\actions\trainingAction.cpp" />
     <ClCompile Include="src\gameMechanics\actions\viewCharacterAction.cpp" />
     <ClCompile Include="src\gameMechanics\actions\viewInventoryAction.cpp" />
+    <ClCompile Include="src\gameMechanics\actions\viewJournalAction.cpp" />
+    <ClCompile Include="src\player\HuntingQuest.cpp" />
     <ClCompile Include="src\world\AdventureDirection.cpp" />
     <ClCompile Include="src\enemies\CaveEnemies.cpp" />
     <ClCompile Include="include\player\CharacterClass.h" />
@@ -157,9 +159,13 @@
     <ClInclude Include="include\gameMechanics\actions\trainingAction.h" />
     <ClInclude Include="include\gameMechanics\actions\viewCharacterAction.h" />
     <ClInclude Include="include\gameMechanics\actions\viewInventoryAction.h" />
+    <ClInclude Include="include\gameMechanics\actions\viewJournalAction.h" />
     <ClInclude Include="include\gameMechanics\BattleSystem.h" />
     <ClInclude Include="include\inventory\Consumables.h" />
     <ClInclude Include="include\inventory\InventoryItem.h" />
+    <ClInclude Include="include\player\HuntingQuest.h" />
+    <ClInclude Include="include\player\Journal.h" />
+    <ClInclude Include="include\player\Quest.h" />
     <ClInclude Include="include\world\AdventureDirection.h" />
     <ClInclude Include="include\enemies\CaveEnemies.h" />
     <ClInclude Include="include\common\DataIO.h" />

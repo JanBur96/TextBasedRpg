@@ -19,6 +19,7 @@ public:
 
     virtual void performAttack();
     void takeDamage(int damage);
+    std::vector<std::string> dropItems();
 
     std::string getName() const;
     int getHealth() const;

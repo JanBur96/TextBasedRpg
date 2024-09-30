@@ -21,11 +21,16 @@ PlayerChoice showActions()
         std::cout << "What do you want to do?\n"
             << "1. View Character\n"
             << "2. Show Inventory\n"
-            << "3. Rest\n"
-            << "4. Training\n"
-            << "5. Adventure\n"
-            << "6. Exit\n"
-            << "Enter your choice (1-6): ";
+            << "3. View Journal\n"
+            << "4. Rest\n"
+            << "5. Training\n"
+            << "6. Adventure\n"
+            << "7. Shop\n"
+            << "8. Craft\n"
+            << "9. Save\n"
+            << "10. Load\n"
+            << "11. Exit\n"
+            << "Enter your choice (1-11): ";
 
         int choice{getNumericInput()};
 
@@ -115,38 +120,52 @@ Player* initializeGame()
 
 int main()
 {
-    void adventureAction(Player& player);
-
+    void adventureAction(Player & player);
     bool playerAlive = true;
     bool gameRunning = true;
     Player* player{ initializeGame() };
-
     while (playerAlive && gameRunning)
     {
         PlayerChoice playerChoice = showActions();
-
-        switch (playerChoice) 
+        switch (playerChoice)
         {
-            case PlayerChoice::ViewCharacter:
-                viewCharacterAction(*player);
-                break;
-            case PlayerChoice::ViewInventory:
-                viewInventoryAction(*player);
-                break;
-            case PlayerChoice::Rest:
-                restAction(*player);
-                break;
-            case PlayerChoice::Training:
-                trainingAction(*player);
-                break;
-            case PlayerChoice::Adventure:
-                adventureAction(*player);
-                break;
-            case PlayerChoice::Exit:
-                gameRunning = false;
-                break;
+        case PlayerChoice::ViewCharacter:
+            viewCharacterAction(*player);
+            break;
+        case PlayerChoice::ViewInventory:
+            viewInventoryAction(*player);
+            break;
+        case PlayerChoice::ViewJournal:
+            viewJournalAction(*player);
+            break;
+        case PlayerChoice::Rest:
+            restAction(*player);
+            break;
+        case PlayerChoice::Training:
+            trainingAction(*player);
+            break;
+        case PlayerChoice::Adventure:
+            adventureAction(*player);
+            break;
+        case PlayerChoice::Shop:
+            //shopAction(*player);
+            break;
+        case PlayerChoice::Craft:
+            //craftAction(*player);
+            break;
+        case PlayerChoice::Save:
+            //saveGameAction(*player);
+            break;
+        case PlayerChoice::Load:
+            //loadGameAction(*player);
+            break;
+        case PlayerChoice::Exit:
+            gameRunning = false;
+            break;
+        default:
+            std::cout << "Invalid choice. Please try again.\n";
+            break;
         }
     }
-
     delete player;
 }

@@ -12,6 +12,16 @@ void Enemy::takeDamage(int damage) {
     health -= (damage);
 }
 
+std::vector<std::string> Enemy::dropItems() {
+    std::vector<std::string> droppedItems;
+    for (const auto& item : drops) {
+        if (rand() % 2 == 0) {
+            droppedItems.push_back(item);
+        }
+    }
+    return droppedItems;
+}
+
 std::string Enemy::getName() const { return name; }
 int Enemy::getHealth() const { return health; }
 int Enemy::getMana() const { return mana; }

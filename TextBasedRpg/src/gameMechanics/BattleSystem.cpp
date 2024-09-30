@@ -75,7 +75,11 @@ bool BattleSystem::checkLifeStatus(Player& player, Enemy& enemy)
 
 void BattleSystem::handleVictory(Player &player, Enemy &enemy)
 {
-    enemy.getDrops();
+    std::vector<std::string> droppedItems = enemy.dropItems();
+    for (const auto& item : droppedItems) {
+        std::cout << "The enemy dropped: " << item << '\n';
+    }
+
     player.gainGold(enemy.getGold());
     player.gainExperience(enemy.getExperience());
     std::cout << "You won!" << '\n';

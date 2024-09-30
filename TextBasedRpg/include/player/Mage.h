@@ -5,6 +5,7 @@
 #include <memory>
 #include "inventory/Inventory.h"
 #include "inventory/InventoryItem.h"
+#include "HuntingQuest.h"
 
 class Mage : public Player {
 public:
@@ -40,7 +41,7 @@ private:
 	void initializeInventory()
 	{
 		m_inventory.addItem(std::make_unique<HealthPotion>("Small Potion", 5, 2, 30));
-		//addInventoryItem(InventoryItem("Mana Potion", "Potion", 10));
+		m_journal.addQuest(std::make_unique<HuntingQuest>("Kill the Wolves!", "You have to kill Wolves", 50, 50, std::vector<std::string>{}, "Wolf", 5));
 	}
 
     void initializeSkills()

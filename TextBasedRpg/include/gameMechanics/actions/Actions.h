@@ -5,3 +5,4 @@
 #include "restAction.h"
 #include "viewCharacterAction.h"
 #include "viewInventoryAction.h"
+#include "viewJournalAction.h"

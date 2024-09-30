@@ -7,6 +7,7 @@
 #include "inventory/Inventory.h"
 #include <iostream>
 #include <memory>
+#include "Journal.h"
 
 class Player {
 protected:
@@ -25,9 +26,10 @@ protected:
     int m_experience;
     std::vector<Skill> skills;
     Inventory m_inventory;
+    Journal m_journal;
 
 public:
-    Player(const std::string& name, const std::string& characterClass, int level, int maxHealth, int strength, int maxMana, int maxEnergy, int gold, int defense, int experience, Inventory inventory = Inventory()) :
+    Player(const std::string& name, const std::string& characterClass, int level, int maxHealth, int strength, int maxMana, int maxEnergy, int gold, int defense, int experience, Inventory inventory = Inventory(), Journal journal = Journal()) :
         m_name(name),
         m_characterClass(characterClass),
         m_level(level),
@@ -41,7 +43,8 @@ public:
         m_gold(gold),
         m_defense(defense),
         m_experience(experience),
-        m_inventory(std::move(inventory))
+        m_inventory(std::move(inventory)),
+        m_journal(std::move(journal))
     {}
 
     virtual ~Player() {}
@@ -115,9 +118,10 @@ public:
     void attackSkill(Enemy& enemy)
     {
         std::cout << "Which skill do you want to use?" << '\n';
-        for (int i = 0; i < skills.size(); i++)
+        int i{ 0 };
+        for (const Skill& skill : skills)
 		{
-			std::cout << i + 1 << ". " << skills[i].getName() << '\n';
+			std::cout << i + 1 << ". " << skill.getName() << '\n';
 		}
 
         int choice;
@@ -168,4 +172,5 @@ public:
     int getExperienceForNextLevel() { return experienceForNextLevel(); }
     const std::vector<Skill>& getSkills() const { return skills; }
     Inventory& getInventory() { return m_inventory; }
+    Journal& getJournal() { return m_journal; }
 };
