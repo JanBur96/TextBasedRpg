@@ -6,3 +6,4 @@
 #include "viewCharacterAction.h"
 #include "viewInventoryAction.h"
 #include "viewJournalAction.h"
+#include "viewEquipmentAction.h"

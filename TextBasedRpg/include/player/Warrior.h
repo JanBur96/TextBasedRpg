@@ -29,6 +29,5 @@ public:
 private:
     void initializeSkills()
     {
-        addSkill(Skill("Heavy Hit", 1, 7, 10));
     }
 };

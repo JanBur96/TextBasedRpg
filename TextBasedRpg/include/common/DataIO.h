@@ -10,3 +10,5 @@ void printGetCharacterClassMessage();
 void printDivider(int emptyLinesBefore, int emptyLinesAfter, bool clearScreen = false);
 
 void handleClearScreen();
+
+void printHeadline(std::string text);

@@ -8,14 +8,20 @@
 
 void adventureAction(Player& player)
 {
-    printDivider(1, 2, true);
-
     BattleSystem battleSystem;
     GameWorld gameWorld;
 
-    std::cout << "You are currently in the " << getAdventureDirectionString(gameWorld.getCurrentAdventureDirection()) << "." << '\n';
+    handleClearScreen();
+    printHeadline("Adventure");
 
-    AdventureDirection location = gameWorld.chooseAdventureDirection();
+    AdventureDirection location; 
+    location = gameWorld.chooseAdventureDirection();
+
+    if (location == AdventureDirection::Return)
+    {
+        return;
+    }
+
     auto enemy{ EnemyFactory::generateRandomEnemy(location) };
 
     bool combatOngoing{ true };

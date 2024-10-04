@@ -36,12 +36,20 @@ public:
     {
         std::vector<EnemyType> enemyPool;
         handleClearScreen();
+        int start, end;
 
         switch (adventureLocation)
         {
             case AdventureDirection::Forest:
             {
-                enemyPool = { EnemyType::Goblin, EnemyType::Wolf, EnemyType::Bear };
+                start = static_cast<int>(EnemyType::ForestStart);
+                end = static_cast<int>(EnemyType::ForestEnd);
+
+                for (int i = start + 1; i < end; i++)
+                {
+                    enemyPool.push_back(static_cast<EnemyType>(i));
+                }
+
                 EnemyType randomType = enemyPool[generateRandomNumberInRange(0, enemyPool.size() - 1)];
 			    return EnemyFactory::createEnemy(randomType);
             }

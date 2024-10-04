@@ -1,4 +1,4 @@
-#include "player/HuntingQuest.h"
+#include "quest/HuntingQuest.h"
 #include <iostream>
 #include "common/DataIO.h"
 

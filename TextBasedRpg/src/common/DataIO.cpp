@@ -1,13 +1,13 @@
 #include <iostream>
 #include <chrono>
 #include "common/DataIO.h"
+#include "color.hpp"
 
 #ifdef _WIN32
 #include <windows.h>
 #else
 #include <cstdlib>
 #endif
-
 
 void printSlowly(const std::string& text, int milliseconds = 1) {
     for (char c : text) {
@@ -67,7 +67,7 @@ void printDivider(int emptyLinesBefore, int emptyLinesAfter, bool clearScreen)
         }
     }
 
-    std::cout << "----------------------------------------------------";
+    std::cout << dye::aqua("----------------------------------------------------");
 
     if (emptyLinesAfter)
     {
@@ -85,4 +85,10 @@ void handleClearScreen()
     #else
         system("clear");
     #endif
+}
+
+void printHeadline(std::string text)
+{
+    std::cout << dye::yellow(text) << "\n";
+    std::cout << dye::aqua(std::string(text.length(), '-')) << "\n \n";
 }

@@ -12,25 +12,29 @@
 #include "shared/GameConstants.h"
 #include "gameMechanics/actions/adventureAction.h"
 #include "gameMechanics/actions/Actions.h"
+#include "initialization/SkillInitializer.h"
+#include "gameMechanics/actions/shopAction.h"
+#include "color.hpp"
 
 PlayerChoice showActions()
 {
     while (true) 
     {
-        printDivider(1, 2, false);
-        std::cout << "What do you want to do?\n"
-            << "1. View Character\n"
-            << "2. Show Inventory\n"
-            << "3. View Journal\n"
-            << "4. Rest\n"
-            << "5. Training\n"
-            << "6. Adventure\n"
-            << "7. Shop\n"
-            << "8. Craft\n"
-            << "9. Save\n"
-            << "10. Load\n"
-            << "11. Exit\n"
-            << "Enter your choice (1-11): ";
+        handleClearScreen();
+        std::cout << "What do you want to do?\n \n"
+            << dye::yellow("1. ") << "View Character\n"
+            << dye::yellow("2. ") << "View Inventory\n"
+            << dye::yellow("3. ") << "View Equipment\n"
+            << dye::yellow("4. ") << "View Journal\n"
+            << dye::yellow("5. ") << "Rest\n"
+            << dye::yellow("6. ") << "Training\n"
+            << dye::yellow("7. ") << "Adventure\n"
+            << dye::yellow("8. ") << "Shops\n"
+            << dye::yellow("9. ") << "Craft\n"
+            << dye::yellow("10. ") << "Save\n"
+            << dye::yellow("11. ") << "Load\n"
+            << dye::yellow("12. ") << "Exit\n \n"
+            << "Enter your choice (1-12): ";
 
         int choice{getNumericInput()};
 
@@ -99,10 +103,13 @@ CharacterClass getCharacterClass()
 
 Player* initializeGame()
 {
-    printWelcomeMessage();
+   // printWelcomeMessage();
 
-    std::string name = getCharacterName();
-    CharacterClass characterClass = getCharacterClass();
+    //std::string name = getCharacterName();
+    //CharacterClass characterClass = getCharacterClass();
+
+    std::string name = "Jan";
+    CharacterClass characterClass = CharacterClass::Mage;
 
     using namespace GameConstants::StartingStats;
 
@@ -113,7 +120,7 @@ Player* initializeGame()
         case CharacterClass::Rogue:
             return new Rogue(name, HEALTH, ROGUE_STRENGTH, MANA, ENERGY, MONEY, DEFENSE);
         case CharacterClass::Mage:
-            return new Mage(name, HEALTH, MAGE_STRENGTH, MANA, ENERGY, MONEY, DEFENSE);
+            return new Mage(name, HEALTH, 100, MANA, ENERGY, MONEY, DEFENSE);
     }
     throw std::runtime_error("Unexpected character class");
 }
@@ -124,6 +131,8 @@ int main()
     bool playerAlive = true;
     bool gameRunning = true;
     Player* player{ initializeGame() };
+    SkillInitializer::initializeMageSkills(*player);
+
     while (playerAlive && gameRunning)
     {
         PlayerChoice playerChoice = showActions();
@@ -138,6 +147,9 @@ int main()
         case PlayerChoice::ViewJournal:
             viewJournalAction(*player);
             break;
+        case PlayerChoice::ViewEquipment:
+            viewEquipmentAction(*player);
+            break;
         case PlayerChoice::Rest:
             restAction(*player);
             break;
@@ -148,7 +160,7 @@ int main()
             adventureAction(*player);
             break;
         case PlayerChoice::Shop:
-            //shopAction(*player);
+            shopAction(*player);
             break;
         case PlayerChoice::Craft:
             //craftAction(*player);

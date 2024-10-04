@@ -4,6 +4,36 @@
 #include "enemies/Enemy.h"
 #include "common/DataIO.h"
 #include "gameMechanics/actions/combatInventoryAction.h"
+#include "quest/Journal.h"
+#include "quest/HuntingQuest.h"
+
+void BattleSystem::handleQuestProgress(Player& player, Enemy& enemy)
+{
+    const std::vector<std::unique_ptr<Quest>>& openQuests{ player.getJournal().getOpenQuests() };
+
+    for (const auto& quest : openQuests)
+    {
+        if (auto* huntingQuest = dynamic_cast<HuntingQuest*>(quest.get()))
+        {
+            if (huntingQuest->getMonsterToKill() == enemy.getName())
+            {
+                huntingQuest->incrementMonsterKilled();
+
+                if (huntingQuest->isQuestComplete())
+                {
+                    std::cout << "You've completed a quest!" << "\n";
+                    player.getJournal().completeQuest(huntingQuest);
+                    int goldReward{ huntingQuest->getGoldReward() };
+                    int experienceReward{ huntingQuest->getExperienceReward() };
+                    std::vector<std::string> itemReward{ huntingQuest->getItemReward() };
+
+                    player.gainGold(goldReward);
+                    player.gainExperience(experienceReward);
+                }
+            }
+        }
+    }
+}
 
 bool BattleSystem::handleFleeAttempt()
 {
@@ -75,6 +105,8 @@ bool BattleSystem::checkLifeStatus(Player& player, Enemy& enemy)
 
 void BattleSystem::handleVictory(Player &player, Enemy &enemy)
 {
+    handleQuestProgress(player, enemy);
+
     std::vector<std::string> droppedItems = enemy.dropItems();
     for (const auto& item : droppedItems) {
         std::cout << "The enemy dropped: " << item << '\n';

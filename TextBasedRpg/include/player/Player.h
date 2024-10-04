@@ -7,7 +7,8 @@
 #include "inventory/Inventory.h"
 #include <iostream>
 #include <memory>
-#include "Journal.h"
+#include "quest/Journal.h"
+#include "Equip.h"
 
 class Player {
 protected:
@@ -26,10 +27,11 @@ protected:
     int m_experience;
     std::vector<Skill> skills;
     Inventory m_inventory;
+    Equip m_equip;
     Journal m_journal;
 
 public:
-    Player(const std::string& name, const std::string& characterClass, int level, int maxHealth, int strength, int maxMana, int maxEnergy, int gold, int defense, int experience, Inventory inventory = Inventory(), Journal journal = Journal()) :
+    Player(const std::string& name, const std::string& characterClass, int level, int maxHealth, int strength, int maxMana, int maxEnergy, int gold, int defense, int experience, Inventory inventory = Inventory(), Equip equip = Equip(), Journal journal = Journal()) :
         m_name(name),
         m_characterClass(characterClass),
         m_level(level),
@@ -44,6 +46,7 @@ public:
         m_defense(defense),
         m_experience(experience),
         m_inventory(std::move(inventory)),
+        m_equip(std::move(equip)),
         m_journal(std::move(journal))
     {}
 
@@ -172,5 +175,6 @@ public:
     int getExperienceForNextLevel() { return experienceForNextLevel(); }
     const std::vector<Skill>& getSkills() const { return skills; }
     Inventory& getInventory() { return m_inventory; }
+    Equip& getEquip() { return m_equip; }
     Journal& getJournal() { return m_journal; }
 };

@@ -4,7 +4,8 @@
 
 enum class AdventureDirection
 {
-	Forest = 1,
+	Return,
+	Forest,
 	Cave,
 	Desert,
 };

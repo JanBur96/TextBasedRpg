@@ -93,6 +93,24 @@
     <ClCompile Include="src\player\HuntingQuest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\initialization\SkillInitializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameMechanics\actions\shopAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameMechanics\actions\shopActions\skillTeacherAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\player\SkillRepository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameMechanics\actions\viewEquipmentAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Equippable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\common\DataIO.h">
@@ -188,13 +206,34 @@
     <ClInclude Include="include\gameMechanics\actions\viewJournalAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\player\Journal.h">
+    <ClInclude Include="include\quest\Journal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\player\Quest.h">
+    <ClInclude Include="include\quest\Quest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\player\HuntingQuest.h">
+    <ClInclude Include="include\quest\HuntingQuest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\initialization\SkillInitializer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gameMechanics\actions\shopAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gameMechanics\actions\shopActions\skillTeacherAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\player\SkillRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gameMechanics\actions\viewEquipmentAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\inventory\Equippable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\player\Equip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

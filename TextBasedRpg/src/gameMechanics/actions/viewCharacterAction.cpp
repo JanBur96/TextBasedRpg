@@ -7,29 +7,32 @@ void viewCharacterAction(Player& player)
 {
     while (true)
     {
-        printDivider(1, 2, true);
-        std::cout << "View Character" << std::endl;
-        std::cout << "Name: " << player.getName() << std::endl;
-        std::cout << "Class: " << player.getCharacterClass() << std::endl;
-        std::cout << "Level: " << player.getLevel() << std::endl;
-        std::cout << "Health: " << player.getHealth() << "/" << player.getMaxHealth() << std::endl;
-        std::cout << "Mana: " << player.getMana() << "/" << player.getMaxMana() << std::endl;
-        std::cout << "Strength: " << player.getStrength() << std::endl;
-        std::cout << "Defense: " << player.getDefense() << std::endl;
-        std::cout << "Experience: " << player.getExperience() << "/" << player.getExperienceForNextLevel() << std::endl;
-        std::cout << "Skills: " << std::endl;
+        handleClearScreen();
+        printHeadline("View Character");
+        std::cout << "Name: " << player.getName() << "\n";
+        std::cout << "Class: " << player.getCharacterClass() << "\n";
+        std::cout << "Level: " << player.getLevel() << "\n" << "\n";
+
+        std::cout << "Health: " << player.getHealth() << "/" << player.getMaxHealth() << "\n";
+        std::cout << "Mana: " << player.getMana() << "/" << player.getMaxMana() << "\n";
+        std::cout << "Strength: " << player.getStrength() << "\n";
+        std::cout << "Defense: " << player.getDefense() << "\n";
+        std::cout << "Experience: " << player.getExperience() << "/" << player.getExperienceForNextLevel() << "\n";
+        std::cout << "Energy: " << player.getEnergy() << "/" << player.getMaxEnergy() << "\n" << "\n";
+
+        std::cout << "Skills: " << "\n";
         for (Skill skill : player.getSkills())
         {
-            std::cout << "  Name: " << skill.getName() << std::endl;
-            std::cout << "  Level: " << skill.getLevel() << std::endl;
-            std::cout << "  Damage: " << skill.getDamage() << std::endl;
-            std::cout << "  Mana cost: " << skill.getManaCost() << std::endl;
+            std::cout << "  Name: " << skill.getName() << "\n";
+            std::cout << "  Level: " << skill.getSkillLevel() << "\n";
+            std::cout << "  Damage: " << skill.getDamage() << "\n";
+            std::cout << "  Mana cost: " << skill.getManaCost() << "\n";
         }
-        std::cout << "Energy: " << player.getEnergy() << "/" << player.getMaxEnergy() << std::endl;
         printDivider(1, 2);
 
         std::cout << "What do you want to do?" << std::endl;
-        std::cout << "1. Back to main menu" << std::endl;
+        std::cout << "1. Back to main menu" << std::endl << std::endl;
+        std::cout << "Please enter your choice (1): ";
 
         int viewCharacterChoice{ getNumericInput() };
 

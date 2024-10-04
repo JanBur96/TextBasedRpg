@@ -11,4 +11,5 @@ public:
 	void handleVictory(Player& player, Enemy& enemy);
 	void handleDefeat(Player& player);
 	void displayCombatStatus(Player& player, Enemy& enemy);
+	void handleQuestProgress(Player& player, Enemy& enemy);
 };

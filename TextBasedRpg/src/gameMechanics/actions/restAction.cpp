@@ -6,19 +6,20 @@ void restAction(Player& player)
 {
     while (true)
     {
-        printDivider(1, 2);
-
         int cost{ generateInnCost(player, 2) };
 
-        std::cout << "Welcome in Isabels Inn!" << std::endl;
-        std::cout << "Staying a night costs " << cost << " Gold." << std::endl;
+        handleClearScreen();
+        printHeadline("Inn");
+
+        std::cout << "Welcome to Isabels Inn!" << "\n";
+        std::cout << "Staying a night costs " << cost << " gold." << "\n";
 
         printDivider(1, 2);
 
         std::cout << "What do you want to do?" << std::endl;
         std::cout << "1. Stay for the night" << std::endl;
         std::cout << "2. Leave the inn" << std::endl;
-        std::cout << "Enter your choice (1-2):" << std::endl;
+        std::cout << "Please enter your choice (1-2): ";
 
         int restChoice{ getNumericInput() };
 

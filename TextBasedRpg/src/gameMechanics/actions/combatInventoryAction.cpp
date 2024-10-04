@@ -17,9 +17,9 @@ void combatInventoryAction(Player& player)
     {
         while (true)
         {
-            printDivider(1, 2);
             int itemIndex{ 1 };
-            std::cout << "View Inventory" << '\n';
+            handleClearScreen();
+            printHeadline("View Inventory");
             std::cout << "Inventory: " << '\n';
             for (const auto& item : player.getInventory().getItems())
             {

@@ -29,6 +29,5 @@ public:
 private:
     void initializeSkills()
     {
-        addSkill(Skill("DaggerThrow", 1, 7, 7));
     }
 };

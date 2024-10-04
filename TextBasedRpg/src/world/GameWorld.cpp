@@ -16,6 +16,10 @@ AdventureDirection GameWorld::chooseAdventureDirection()
 
 		int adventureChoice{ getNumericInput() };
 
+		if (adventureChoice == 4)
+		{
+			return static_cast<AdventureDirection>(0);
+		}
 		if (adventureChoice > 4)
 		{
 			std::cout << "Invalid choice. Please try again." << std::endl;

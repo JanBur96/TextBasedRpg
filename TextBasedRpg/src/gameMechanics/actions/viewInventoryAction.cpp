@@ -17,9 +17,9 @@ void viewInventoryAction(Player& player)
     {
         while (true)
         {
-            printDivider(1, 2);
             int itemIndex{ 1 };
-            std::cout << "View Inventory" << '\n';
+            handleClearScreen();
+            printHeadline("View Inventory");
             std::cout << "Gold: " << player.getGold() << '\n';
             std::cout << "Inventory: " << '\n';
             for (const auto& item : player.getInventory().getItems())
@@ -31,10 +31,10 @@ void viewInventoryAction(Player& player)
 
             printDivider(1, 2);
 
-            std::cout << "What do you want to do?" << '\n';
             std::cout << "1. Use item" << '\n';
             std::cout << "2. Drop item" << '\n';
             std::cout << "3. Back to main menu" << '\n';
+            std::cout << "Please enter your choice (1-3): ";
 
             int viewInventoryChoice{ getNumericInput() };
 

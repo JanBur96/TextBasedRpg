@@ -5,6 +5,7 @@
 class Quest
 {
 protected:
+	const std::string m_questType;
 	const std::string m_name;
 	const std::string m_description;
 	const int m_experienceReward;
@@ -12,7 +13,8 @@ protected:
 	const std::vector<std::string> m_itemReward;
 
 public:
-	Quest(const std::string& name, const std::string& description, int experienceReward, int goldReward, std::vector<std::string> itemReward) :
+	Quest(const std::string questType, const std::string& name, const std::string& description, int experienceReward, int goldReward, std::vector<std::string> itemReward) :
+		m_questType(questType),
 		m_name(name),
 		m_description(description),
 		m_experienceReward(experienceReward),
@@ -24,6 +26,7 @@ public:
 
 	virtual void printQuest() = 0;
 
+	const std::string& getQuestType() const { return m_questType; }
 	const std::string& getName() const { return m_name; }
 	const std::string& getDescription() const { return m_description; }
 	int getExperienceReward() const { return m_experienceReward; }
