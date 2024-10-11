@@ -3,10 +3,10 @@
 
 void Consumable::printItem()
 {
-	std::cout << "  Name: " << getName() << std::endl;
-	std::cout << "  Value: " << getValue() << std::endl;
-	std::cout << "  Quantity: " << getQuantity() << std::endl;
-	std::cout << "  Potency: " << getPotency() << std::endl;
+	std::cout << "  Name: " << getName() << "\n";
+	std::cout << "  Value: " << getValue() << "\n";
+	std::cout << "  Quantity: " << getQuantity() << "\n";
+	std::cout << "  Potency: " << getPotency() << "\n";
 }
 
 void HealthPotion::useItem(Player& player, int index) {

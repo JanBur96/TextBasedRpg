@@ -1,5 +1,5 @@
 #include <iostream>
-#include "enemies/ForestEnemies.h"
+#include "enemies/environments/ForestEnemies.h"
 
 Goblin::Goblin() : Enemy("Goblin", 70, 0, 12, 6, 10, 5, { "Small Health Potion" }) {
     std::cout << "A goblin has appeared!" << '\n';

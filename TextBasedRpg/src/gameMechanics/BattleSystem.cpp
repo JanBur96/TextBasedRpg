@@ -9,28 +9,22 @@
 
 void BattleSystem::handleQuestProgress(Player& player, Enemy& enemy)
 {
-    const std::vector<std::unique_ptr<Quest>>& openQuests{ player.getJournal().getOpenQuests() };
+    auto& journal = player.getJournal();
+    auto& openQuests = journal.getOpenQuests();
 
-    for (const auto& quest : openQuests)
+    for (int i = 0; i < openQuests.size(); ++i)
     {
-        if (auto* huntingQuest = dynamic_cast<HuntingQuest*>(quest.get()))
+        auto* huntingQuest = dynamic_cast<HuntingQuest*>(openQuests[i].get());
+
+        if (!huntingQuest || huntingQuest->getMonsterToKill() != enemy.getName())
+            continue;
+
+        huntingQuest->incrementMonsterKilled();
+
+        if (huntingQuest->getMonsterKilled() == huntingQuest->getMonsterToKillCount())
         {
-            if (huntingQuest->getMonsterToKill() == enemy.getName())
-            {
-                huntingQuest->incrementMonsterKilled();
-
-                if (huntingQuest->isQuestComplete())
-                {
-                    std::cout << "You've completed a quest!" << "\n";
-                    player.getJournal().completeQuest(huntingQuest);
-                    int goldReward{ huntingQuest->getGoldReward() };
-                    int experienceReward{ huntingQuest->getExperienceReward() };
-                    std::vector<std::string> itemReward{ huntingQuest->getItemReward() };
-
-                    player.gainGold(goldReward);
-                    player.gainExperience(experienceReward);
-                }
-            }
+            journal.completeQuest(huntingQuest);
+            --i;
         }
     }
 }

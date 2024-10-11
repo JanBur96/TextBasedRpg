@@ -1,5 +1,5 @@
 #pragma once
-#include "shared/Skill.h"
+#include "player/Skill.h"
 #include "player/Player.h"
 
 namespace SkillInitializer {

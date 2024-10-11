@@ -1,11 +1,11 @@
 #pragma once
 #include "player/Player.h"
-#include "shared/Skill.h"
+#include "player/Skill.h"
 
-class Warrior : public Player {
+class Rogue : public Player {
 public:
-    Warrior(const std::string& name, int maxHealth, int strength, int maxMana, int maxEnergy, int money, int defense)
-        : Player(name, "Warrior", 1, maxHealth, strength, maxMana, maxEnergy, money, defense, 0)
+    Rogue(const std::string& name, int maxHealth, int strength, int maxMana, int maxEnergy, int money, int defense)
+        : Player(name, "Rogue", 1, maxHealth, strength, maxMana, maxEnergy, money, defense, 0)
     {
         initializeSkills();
     }
@@ -23,7 +23,7 @@ public:
 		m_defense += 1;
 		m_experience = 0;
 
-		std::cout << "You have leveled up! You are now level " << m_level << "!" << std::endl;
+		std::cout << "You have leveled up! You are now level " << m_level << "!" << "\n";
 	}
 
 private:

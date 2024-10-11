@@ -1,7 +1,7 @@
 #include "gameMechanics/actions/shopActions/skillTeacherAction.h"
 #include "common/Utility.h"
 #include "player/SkillRepository.h"
-#include "shared/Skill.h"
+#include "player/Skill.h"
 #include "common/DataIO.h"
 
 std::vector<Skill> vectorLevelFilter(std::vector<Skill>& skillsToLearn, int playerLevel)

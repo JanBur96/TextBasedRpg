@@ -1,4 +1,4 @@
-#include "gameMechanics/actions/restAction.h"
+#include "gameMechanics/actions/menuActions/restAction.h"
 #include "common/Utility.h"
 #include "common/DataIO.h"
 
@@ -16,10 +16,7 @@ void restAction(Player& player)
 
         printDivider(1, 2);
 
-        std::cout << "What do you want to do?" << std::endl;
-        std::cout << "1. Stay for the night" << std::endl;
-        std::cout << "2. Leave the inn" << std::endl;
-        std::cout << "Please enter your choice (1-2): ";
+        outputHelper({ "Stay for the night", "Leave the inn" });
 
         int restChoice{ getNumericInput() };
 
@@ -28,11 +25,11 @@ void restAction(Player& player)
             if (player.payGold(cost))
             {
 				player.rest();
-                std::cout << "You slept well and are well rested now." << std::endl;
+                std::cout << "You slept well and are well rested now." << "\n";
 			}
 			else
 			{
-				std::cout << "You don't have enough Gold to stay here." << std::endl;
+				std::cout << "You don't have enough Gold to stay here." << "\n";
 			}
         }
         else if (restChoice == 2) {
@@ -40,7 +37,7 @@ void restAction(Player& player)
         }
         else
         {
-            std::cout << "Invalid choice. Please try again." << std::endl;
+            std::cout << "Invalid choice. Please try again." << "\n";
         }
     }
 }

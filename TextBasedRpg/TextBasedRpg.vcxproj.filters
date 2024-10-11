@@ -39,16 +39,16 @@
     <ClCompile Include="src\common\Utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\enemies\ForestEnemies.cpp">
+    <ClCompile Include="src\enemies\environments\ForestEnemies.cpp">
       <Filter>Source Files\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="src\enemies\CaveEnemies.cpp">
+    <ClCompile Include="src\enemies\environments\CaveEnemies.cpp">
       <Filter>Source Files\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="src\enemies\DesertEnemies.cpp">
+    <ClCompile Include="src\enemies\environments\DesertEnemies.cpp">
       <Filter>Source Files\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="src\enemies\MountainEnemies.cpp">
+    <ClCompile Include="src\enemies\environments\MountainEnemies.cpp">
       <Filter>Source Files\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="src\enemies\Enemy.cpp">
@@ -66,28 +66,28 @@
     <ClCompile Include="src\world\AdventureDirection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Consumables.cpp">
+    <ClCompile Include="src\inventory\Consumables.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameMechanics\actions\restAction.cpp">
+    <ClCompile Include="src\gameMechanics\actions\menuActions\restAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameMechanics\actions\adventureAction.cpp">
+    <ClCompile Include="src\gameMechanics\actions\menuActions\adventureAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameMechanics\actions\trainingAction.cpp">
+    <ClCompile Include="src\gameMechanics\actions\menuActions\trainingAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameMechanics\actions\viewCharacterAction.cpp">
+    <ClCompile Include="src\gameMechanics\actions\menuActions\viewCharacterAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameMechanics\actions\viewInventoryAction.cpp">
+    <ClCompile Include="src\gameMechanics\actions\menuActions\viewInventoryAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\gameMechanics\actions\combatInventoryAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameMechanics\actions\viewJournalAction.cpp">
+    <ClCompile Include="src\gameMechanics\actions\menuActions\viewJournalAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\player\HuntingQuest.cpp">
@@ -96,7 +96,7 @@
     <ClCompile Include="src\initialization\SkillInitializer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameMechanics\actions\shopAction.cpp">
+    <ClCompile Include="src\gameMechanics\actions\menuActions\shopAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\gameMechanics\actions\shopActions\skillTeacherAction.cpp">
@@ -105,10 +105,16 @@
     <ClCompile Include="src\player\SkillRepository.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameMechanics\actions\viewEquipmentAction.cpp">
+    <ClCompile Include="src\gameMechanics\actions\menuActions\viewEquipmentAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Equippable.cpp">
+    <ClCompile Include="src\inventory\Equippable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\player\Equip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameMechanics\actions\menuActions\innAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -125,7 +131,7 @@
     <ClInclude Include="include\common\Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\shared\GameConstants.h">
+    <ClInclude Include="include\common\GameConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\world\AdventureDirection.h">
@@ -140,34 +146,34 @@
     <ClInclude Include="include\enemies\EnemyType.h">
       <Filter>Header Files\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="include\enemies\ForestEnemies.h">
+    <ClInclude Include="include\enemies\environments\ForestEnemies.h">
       <Filter>Header Files\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="include\enemies\Enemies.h">
       <Filter>Header Files\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="include\enemies\CaveEnemies.h">
+    <ClInclude Include="include\enemies\environments\CaveEnemies.h">
       <Filter>Header Files\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="include\enemies\DesertEnemies.h">
+    <ClInclude Include="include\enemies\environments\DesertEnemies.h">
       <Filter>Header Files\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="include\enemies\MountainEnemies.h">
+    <ClInclude Include="include\enemies\environments\MountainEnemies.h">
       <Filter>Header Files\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="include\player\Mage.h">
+    <ClInclude Include="include\player\classes\Mage.h">
       <Filter>Header Files\PlayerClasses</Filter>
     </ClInclude>
-    <ClInclude Include="include\player\Rogue.h">
+    <ClInclude Include="include\player\classes\Rogue.h">
       <Filter>Header Files\PlayerClasses</Filter>
     </ClInclude>
     <ClInclude Include="include\player\Player.h">
       <Filter>Header Files\PlayerClasses</Filter>
     </ClInclude>
-    <ClInclude Include="include\player\Warrior.h">
+    <ClInclude Include="include\player\classes\Warrior.h">
       <Filter>Header Files\PlayerClasses</Filter>
     </ClInclude>
-    <ClInclude Include="include\shared\Skill.h">
+    <ClInclude Include="include\player\Skill.h">
       <Filter>Header Files\Shared</Filter>
     </ClInclude>
     <ClInclude Include="include\inventory\Inventory.h">
@@ -185,25 +191,25 @@
     <ClInclude Include="include\inventory\Consumables.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gameMechanics\actions\viewCharacterAction.h">
+    <ClInclude Include="include\gameMechanics\actions\menuActions\viewCharacterAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gameMechanics\actions\viewInventoryAction.h">
+    <ClInclude Include="include\gameMechanics\actions\menuActions\viewInventoryAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gameMechanics\actions\restAction.h">
+    <ClInclude Include="include\gameMechanics\actions\menuActions\restAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gameMechanics\actions\trainingAction.h">
+    <ClInclude Include="include\gameMechanics\actions\menuActions\trainingAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gameMechanics\actions\adventureAction.h">
+    <ClInclude Include="include\gameMechanics\actions\menuActions\adventureAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\gameMechanics\actions\combatInventoryAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gameMechanics\actions\viewJournalAction.h">
+    <ClInclude Include="include\gameMechanics\actions\menuActions\viewJournalAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\quest\Journal.h">
@@ -218,7 +224,7 @@
     <ClInclude Include="include\initialization\SkillInitializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gameMechanics\actions\shopAction.h">
+    <ClInclude Include="include\gameMechanics\actions\menuActions\shopAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\gameMechanics\actions\shopActions\skillTeacherAction.h">
@@ -227,13 +233,19 @@
     <ClInclude Include="include\player\SkillRepository.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gameMechanics\actions\viewEquipmentAction.h">
+    <ClInclude Include="include\gameMechanics\actions\menuActions\viewEquipmentAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\inventory\Equippable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\player\Equip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\color.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gameMechanics\actions\menuActions\innAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

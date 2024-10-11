@@ -6,11 +6,11 @@ AdventureDirection GameWorld::chooseAdventureDirection()
 {
 	while (true)
 	{
-		std::cout << "Where do you want to go?" << std::endl;
-		std::cout << "1. Forest (Delia)" << std::endl;
-		std::cout << "2. Cave (Way to Zenonia)" << std::endl;
-		std::cout << "3. Desert (Way to the Mountains)" << std::endl;
-		std::cout << "4. Back to main menu" << std::endl;
+		std::cout << "Where do you want to go?" << "\n";
+		std::cout << "1. Forest (Delia)" << "\n";
+		std::cout << "2. Cave (Way to Zenonia)" << "\n";
+		std::cout << "3. Desert (Way to the Mountains)" << "\n";
+		std::cout << "4. Back to main menu" << "\n";
 		std::cout << "Enter your choice (1-4):";
 		std::cout << std::flush;
 
@@ -22,7 +22,7 @@ AdventureDirection GameWorld::chooseAdventureDirection()
 		}
 		if (adventureChoice > 4)
 		{
-			std::cout << "Invalid choice. Please try again." << std::endl;
+			std::cout << "Invalid choice. Please try again." << "\n";
 			continue;
 		}
 

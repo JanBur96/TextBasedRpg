@@ -1,4 +1,4 @@
-#include "gameMechanics/actions/trainingAction.h"
+#include "gameMechanics/actions/menuActions/trainingAction.h"
 #include <iostream>
 #include "common/Utility.h"
 #include "common/DataIO.h"
@@ -11,12 +11,8 @@ void handleTrainStrength(Player& player)
 {
     int traningCost{ calculateTrainingCost(player.getStrength(), 5, 1.2) };
 
-    std::cout << "Training your strength will cost you " << traningCost << " Gold." << std::endl;
-    std::cout << "What do you want to do?" << std::endl;
-    std::cout << "1. Train your strength" << std::endl;
-    std::cout << "2. Go back to the training ground." << std::endl;
-    std::cout << "3. Go back to main menu" << std::endl;
-    std::cout << "Enter your choice (1-3):" << std::endl;
+    std::cout << "Training your strength will cost you " << traningCost << " Gold." << "\n";
+    outputHelper({ "Train", "Go back to the training ground", "Go back to main menu" });
 
     int trainStrengthChoice{ getNumericInput() };
 
@@ -85,7 +81,7 @@ void trainingAction(Player& player)
         case 6:
             return;
         default:
-            std::cout << "Invalid choice. Please try again." << std::endl;
+            std::cout << "Invalid choice. Please try again." << "\n";
         }
     }
 }

@@ -5,15 +5,16 @@
 #include "player/Player.h"
 #include "gameMechanics/PlayerChoice.h"
 #include "player/CharacterClass.h"
-#include "player/Warrior.h"
-#include "player/Mage.h"
-#include "player/Rogue.h"
+#include "player/classes/Warrior.h"
+#include "player/classes/Mage.h"
+#include "player/classes/Rogue.h"
 #include "common/Utility.h"
-#include "shared/GameConstants.h"
-#include "gameMechanics/actions/adventureAction.h"
+#include "common/GameConstants.h"
+#include "gameMechanics/actions/menuActions/adventureAction.h"
 #include "gameMechanics/actions/Actions.h"
+#include "gameMechanics/actions/menuActions/innAction.h"
 #include "initialization/SkillInitializer.h"
-#include "gameMechanics/actions/shopAction.h"
+#include "gameMechanics/actions/menuActions/shopAction.h"
 #include "color.hpp"
 
 PlayerChoice showActions()
@@ -31,9 +32,10 @@ PlayerChoice showActions()
             << dye::yellow("7. ") << "Adventure\n"
             << dye::yellow("8. ") << "Shops\n"
             << dye::yellow("9. ") << "Craft\n"
-            << dye::yellow("10. ") << "Save\n"
-            << dye::yellow("11. ") << "Load\n"
-            << dye::yellow("12. ") << "Exit\n \n"
+            << dye::yellow("10. ") << "Inn\n"
+            << dye::yellow("11. ") << "Save\n"
+            << dye::yellow("12. ") << "Load\n"
+            << dye::yellow("13. ") << "Exit\n \n"
             << "Enter your choice (1-12): ";
 
         int choice{getNumericInput()};
@@ -61,11 +63,11 @@ std::string getCharacterName()
 
         if (playerName.empty()) 
         {
-            std::cout << "Name can't be empty. Try again." << std::endl;
+            std::cout << "Name can't be empty. Try again." << "\n";
         }
         else if (playerName.length() > 30) 
         {
-            std::cout << "Name can't be longer than 30 characters. Try again." << std::endl;
+            std::cout << "Name can't be longer than 30 characters. Try again." << "\n";
         }
         else 
         {
@@ -96,7 +98,7 @@ CharacterClass getCharacterClass()
         }
         else
         {
-            std::cout << "Invalid selection! Please try again." << std::endl;
+            std::cout << "Invalid selection! Please try again." << "\n";
         }
     }
 }
@@ -164,6 +166,9 @@ int main()
             break;
         case PlayerChoice::Craft:
             //craftAction(*player);
+            break;
+        case PlayerChoice::Inn:
+            innAction(*player);
             break;
         case PlayerChoice::Save:
             //saveGameAction(*player);

@@ -1,6 +1,6 @@
 #pragma once
 #include "player/Player.h"
-#include "shared/Skill.h"
+#include "player/Skill.h"
 #include "inventory/Consumables.h"
 #include <memory>
 #include "inventory/Inventory.h"
@@ -30,7 +30,7 @@ public:
 		m_defense += 1;
 		m_experience = 0;
 
-		std::cout << "You have leveled up! You are now level " << m_level << "!" << std::endl;
+		std::cout << "You have leveled up! You are now level " << m_level << "!" << "\n";
 	}
 
 private:
@@ -41,7 +41,9 @@ private:
 
 	void initializeInventory()
 	{
-		m_inventory.addItem(std::make_unique<Equippable>("Sword", 10, 1, 10, 1, 1, "Weapon"));
+		m_inventory.addItem(std::make_unique<Equippable>("Wooden Sword", 10, 1, 10, 1, 1, "Weapon"));
+		m_inventory.addItem(std::make_unique<Equippable>("Plate Armor", 10, 1, 8, 1, 1, "Armor"));
+		m_inventory.addItem(std::make_unique<Equippable>("Bronze Necklace", 10, 1, 5, 1, 1, "Accessory"));
 		m_inventory.addItem(std::make_unique<HealthPotion>("Small Potion", 5, 2, 30));
 		m_journal.addQuest(std::make_unique<HuntingQuest>("Hunting Quest", "Kill the Wolves!", "You have to kill Wolves", 50, 50, std::vector<std::string>{}, "Wolf", 1));
 	}

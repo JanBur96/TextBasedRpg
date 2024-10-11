@@ -2,7 +2,7 @@
 #include <vector>
 
 #include "player/CharacterClass.h"
-#include "shared/Skill.h"
+#include "player/Skill.h"
 #include "enemies/Enemy.h"
 #include "inventory/Inventory.h"
 #include <iostream>
@@ -177,4 +177,9 @@ public:
     Inventory& getInventory() { return m_inventory; }
     Equip& getEquip() { return m_equip; }
     Journal& getJournal() { return m_journal; }
+
+    void setStrength(int strength) { m_strength = strength; }
+    void setDefense(int defense) { m_defense = defense; }
+    void setHealth(int health) { m_health = health; }
+    void setMaxHealth(int maxHealth) { m_maxHealth = maxHealth; }
 };

@@ -1,4 +1,4 @@
-#include "gameMechanics/actions/adventureAction.h"
+#include "gameMechanics/actions/menuActions/adventureAction.h"
 #include <iostream>
 #include "gameMechanics/BattleSystem.h"
 #include "world/GameWorld.h"

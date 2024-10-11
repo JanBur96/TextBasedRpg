@@ -2,6 +2,7 @@
 #include <chrono>
 #include "common/DataIO.h"
 #include "color.hpp"
+#include <vector>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -91,4 +92,40 @@ void printHeadline(std::string text)
 {
     std::cout << dye::yellow(text) << "\n";
     std::cout << dye::aqua(std::string(text.length(), '-')) << "\n \n";
+}
+
+void printListing(std::string text)
+{
+    std::cout << dye::yellow(text) << "\n";
+}
+
+void outputHelper(std::vector<std::string> options, bool isGo)
+{
+    int counter{ 1 };
+
+    if (isGo)
+    {
+		std::cout << "Where do you want to go?" << "\n";
+	}
+    else
+    {
+        std::cout << "What do you want to do?" << "\n";
+    }
+
+    for (const std::string& option : options)
+    {
+        std::cout << counter << ". " << option << "\n";
+        counter++;
+    }
+
+    std::cout << "\n";
+
+    if (options.size() > 1)
+    {
+		std::cout << "Please enter your choice (" << 1 << "-" << options.size() << "): ";
+	}
+	else
+	{
+		std::cout << "Please enter your choice (1): ";
+	}
 }

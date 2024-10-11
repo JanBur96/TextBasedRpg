@@ -1,7 +1,7 @@
 #include "player/SkillRepository.h"
 #include <vector>
 #include <string>
-#include "shared/Skill.h"
+#include "player/Skill.h"
 
 //std::string m_name;
 //int m_skillLevel;

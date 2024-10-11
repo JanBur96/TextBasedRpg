@@ -1,4 +1,4 @@
-#include "gameMechanics/actions/viewJournalAction.h"
+#include "gameMechanics/actions/menuActions/viewJournalAction.h"
 #include "common/DataIO.h"
 #include "common/Utility.h"
 
@@ -16,11 +16,7 @@ void viewJournalAction(Player& player)
 
 		printDivider(1, 2);
 
-		std::cout << "1. View Open Quests" << '\n';
-		std::cout << "2. View Completed Quests" << '\n';
-		std::cout << "3. Back to main menu" << '\n';
-
-		std::cout << "Please enter your choice (1-3): ";
+		outputHelper({ "View Open Quests", "View Completed Quests", "Back to main menu" });
 
 		int viewJournalChoice{ getNumericInput() };
 
@@ -35,9 +31,26 @@ void viewJournalAction(Player& player)
 					break;
 				}
 
-				for (const auto& quest : openQuests)
+				handleClearScreen();
+				printHeadline("Open Quests");
+
+				for (size_t i = 0; i < openQuests.size(); ++i)
 				{
-					quest->printQuest();
+					std::cout << i + 1 << ". ";
+					openQuests[i]->printQuest();
+					std::cout << '\n';
+				}
+
+				printDivider(1, 2);
+
+				outputHelper({ "Return" });
+
+				switch (getNumericInput())
+				{
+				case 1:
+					return;
+				default:
+					std::cout << "Invalid choice. Please enter a valid number." << '\n';
 				}
 
 				break;
@@ -46,14 +59,28 @@ void viewJournalAction(Player& player)
 			{
 				const std::vector<std::unique_ptr<Quest>>& completedQuests {player.getJournal().getCompletedQuests() };
 
+				handleClearScreen();
+				printHeadline("Completed Quests");
+
 				if (completedQuests.size() < 1) {
 					std::cout << "No completed quests." << '\n';
-					break;
-				}	
+				}
 
 				for (const auto& quest : completedQuests)
 				{
 					quest->printQuest();
+				}
+
+				printDivider(1, 2);
+
+				outputHelper({ "Return" });
+
+				switch (getNumericInput())
+				{
+				case 1:
+					return;
+				default:
+					std::cout << "Invalid choice. Please enter a valid number." << '\n';
 				}
 
 				break;

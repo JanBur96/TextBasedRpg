@@ -15,7 +15,7 @@ public:
 		: InventoryItem(name, value, quantity), potency(potency), minLevel(minLevel), enhancementLevel(enhancementLevel), slot(slot) {}
 
 	void equipItem(Player&);
-	void unequipItem();
+	void unequipItem(Player&);
 	void printItem();
 
 	int getPotency() const { return potency; }

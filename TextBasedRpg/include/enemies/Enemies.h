@@ -1,5 +1,5 @@
 #pragma once
-#include "enemies/ForestEnemies.h"
-#include "enemies/CaveEnemies.h"
-#include "enemies/DesertEnemies.h"
-#include "enemies/MountainEnemies.h"
+#include "enemies/environments/ForestEnemies.h"
+#include "enemies/environments/CaveEnemies.h"
+#include "enemies/environments/DesertEnemies.h"
+#include "enemies/environments/MountainEnemies.h"

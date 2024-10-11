@@ -9,6 +9,7 @@ enum class PlayerChoice {
     Adventure,
     Shop,
     Craft,
+    Inn,
     Save,
     Load,
     Exit

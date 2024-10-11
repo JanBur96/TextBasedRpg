@@ -1,4 +1,4 @@
-#include "gameMechanics/actions/viewInventoryAction.h"
+#include "gameMechanics/actions/menuActions/viewInventoryAction.h"
 #include "common/DataIO.h"
 #include "common/Utility.h"
 
@@ -31,10 +31,7 @@ void viewInventoryAction(Player& player)
 
             printDivider(1, 2);
 
-            std::cout << "1. Use item" << '\n';
-            std::cout << "2. Drop item" << '\n';
-            std::cout << "3. Back to main menu" << '\n';
-            std::cout << "Please enter your choice (1-3): ";
+            outputHelper({ "Use item", "Drop item", "Back to main menu" });
 
             int viewInventoryChoice{ getNumericInput() };
 

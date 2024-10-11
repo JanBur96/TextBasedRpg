@@ -30,9 +30,7 @@ void viewCharacterAction(Player& player)
         }
         printDivider(1, 2);
 
-        std::cout << "What do you want to do?" << std::endl;
-        std::cout << "1. Back to main menu" << std::endl << std::endl;
-        std::cout << "Please enter your choice (1): ";
+        outputHelper({ "Back to main menu" });
 
         int viewCharacterChoice{ getNumericInput() };
 
@@ -42,7 +40,7 @@ void viewCharacterAction(Player& player)
         }
         else
         {
-            std::cout << "Invalid choice. Please try again." << std::endl;
+            std::cout << "Invalid choice. Please try again." << "\n";
         }
     }
 }
