@@ -8,7 +8,7 @@ class Journal
 private:
     std::vector<std::unique_ptr<Quest>> m_openQuests;
     std::vector<std::unique_ptr<Quest>> m_completedQuests;
-    std::vector<std::unique_ptr<Quest>> m_finishedQuests;
+    std::vector<std::unique_ptr<Quest>> m_archivedQuests;
 
 public:
     void addQuest(std::unique_ptr<Quest> quest)
@@ -33,11 +33,12 @@ public:
 			[quest](const std::unique_ptr<Quest>& q) { return q.get() == quest; });
 
 		if (it != m_completedQuests.end()) {
-			m_finishedQuests.push_back(std::move(*it));
+			m_archivedQuests.push_back(std::move(*it));
 			m_completedQuests.erase(it);
 		}
 	}
 
     const std::vector<std::unique_ptr<Quest>>& getOpenQuests() const { return m_openQuests; }
     const std::vector<std::unique_ptr<Quest>>& getCompletedQuests() const { return m_completedQuests; }
+    const std::vector<std::unique_ptr<Quest>>& getArchivedQuests() const { return m_archivedQuests; }
 };

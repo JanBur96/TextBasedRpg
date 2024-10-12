@@ -6,6 +6,9 @@
 #include "gameMechanics/actions/combatInventoryAction.h"
 #include "quest/Journal.h"
 #include "quest/HuntingQuest.h"
+#include "inventory/itemMapper.h"
+#include "inventory/InventoryItem.h"
+#include <memory>
 
 void BattleSystem::handleQuestProgress(Player& player, Enemy& enemy)
 {
@@ -101,9 +104,20 @@ void BattleSystem::handleVictory(Player &player, Enemy &enemy)
 {
     handleQuestProgress(player, enemy);
 
-    std::vector<std::string> droppedItems = enemy.dropItems();
-    for (const auto& item : droppedItems) {
-        std::cout << "The enemy dropped: " << item << '\n';
+    std::vector<ItemType> droppedItems = enemy.dropItems();
+    std::vector<std::unique_ptr<InventoryItem>> items = itemMapper(droppedItems);
+
+    if (!items.empty())
+    {
+        std::cout << "The enemy dropped: " << '\n';
+        for (const auto& item : droppedItems)
+		{
+            std::cout << itemTypeToString(item) << "\n";
+		}
+    }
+    for (auto& item : items) {
+        player.getInventory().addItem(std::move(item));
+
     }
 
     player.gainGold(enemy.getGold());

@@ -143,6 +143,8 @@
     <ClCompile Include="src\gameMechanics\actions\menuActions\viewInventoryAction.cpp" />
     <ClCompile Include="src\gameMechanics\actions\menuActions\viewJournalAction.cpp" />
     <ClCompile Include="src\initialization\SkillInitializer.cpp" />
+    <ClCompile Include="src\inventory\itemMapper.cpp" />
+    <ClCompile Include="src\player\CollectQuest.cpp" />
     <ClCompile Include="src\player\Equip.cpp" />
     <ClCompile Include="src\player\HuntingQuest.cpp" />
     <ClCompile Include="src\player\SkillRepository.cpp" />
@@ -175,11 +177,15 @@
     <ClInclude Include="include\gameMechanics\actions\menuActions\viewJournalAction.h" />
     <ClInclude Include="include\gameMechanics\BattleSystem.h" />
     <ClInclude Include="include\initialization\SkillInitializer.h" />
+    <ClInclude Include="include\inventory\Collectable.h" />
     <ClInclude Include="include\inventory\Consumables.h" />
     <ClInclude Include="include\inventory\Equippable.h" />
     <ClInclude Include="include\inventory\InventoryItem.h" />
+    <ClInclude Include="include\inventory\itemMapper.h" />
+    <ClInclude Include="include\inventory\ItemType.h" />
     <ClInclude Include="include\player\Equip.h" />
     <ClInclude Include="include\player\SkillRepository.h" />
+    <ClInclude Include="include\quest\CollectQuest.h" />
     <ClInclude Include="include\quest\HuntingQuest.h" />
     <ClInclude Include="include\quest\Journal.h" />
     <ClInclude Include="include\quest\Quest.h" />

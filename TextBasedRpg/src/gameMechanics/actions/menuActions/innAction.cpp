@@ -31,6 +31,8 @@ void handleCompleteQuest(Player& player)
 			std::cout << quest->getName() << "\n";
 		}
 
+		printDivider(1, 2);
+
 		outputHelper({ "Hand in complete quests", "Return" });
 
 		int playerChoice{ getNumericInput() };

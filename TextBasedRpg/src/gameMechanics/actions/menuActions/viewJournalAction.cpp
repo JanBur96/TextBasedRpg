@@ -1,6 +1,7 @@
 #include "gameMechanics/actions/menuActions/viewJournalAction.h"
 #include "common/DataIO.h"
 #include "common/Utility.h"
+#include "quest/CollectQuest.h"
 
 void viewJournalAction(Player& player)
 {
@@ -11,12 +12,13 @@ void viewJournalAction(Player& player)
 
 		std::cout << "You got " << player.getJournal().getOpenQuests().size() << " open quest(s)." << "\n";
 		std::cout << "You got " << player.getJournal().getCompletedQuests().size() << " completed quest(s)." << "\n";
+		std::cout << "You got " << player.getJournal().getArchivedQuests().size() << " archived quest(s)." << "\n";
 		std::cout << "\n";
 		std::cout << "You've discovered 22 different kind of monsters" << "\n";
 
 		printDivider(1, 2);
 
-		outputHelper({ "View Open Quests", "View Completed Quests", "Back to main menu" });
+		outputHelper({ "View Open Quests", "View Completed Quests", "View Archived Quests", "Back to main menu" });
 
 		int viewJournalChoice{ getNumericInput() };
 
@@ -37,7 +39,16 @@ void viewJournalAction(Player& player)
 				for (size_t i = 0; i < openQuests.size(); ++i)
 				{
 					std::cout << i + 1 << ". ";
-					openQuests[i]->printQuest();
+
+					if (auto* collectQuest = dynamic_cast<CollectQuest*>(openQuests[i].get()))
+					{
+						collectQuest->printQuest(player);
+					}
+					else
+					{
+						openQuests[i]->printQuest();
+					}
+
 					std::cout << '\n';
 				}
 
@@ -86,6 +97,36 @@ void viewJournalAction(Player& player)
 				break;
 			}
 			case 3:
+			{
+				const std::vector<std::unique_ptr<Quest>>&archivedQuests{ player.getJournal().getArchivedQuests() };
+
+				handleClearScreen();
+				printHeadline("Archived Quests");
+
+				if (archivedQuests.size() < 1) {
+					std::cout << "No archived quests." << '\n';
+				}
+
+				for (const auto& quest : archivedQuests)
+				{
+					quest->printQuest();
+				}
+
+				printDivider(1, 2);
+
+				outputHelper({ "Return" });
+
+				switch (getNumericInput())
+				{
+				case 1:
+					return;
+				default:
+					std::cout << "Invalid choice. Please enter a valid number." << '\n';
+				}
+
+				break;
+			}
+			case 4:
 				return;
 			default:
 			{

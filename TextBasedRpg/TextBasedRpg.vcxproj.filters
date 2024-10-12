@@ -117,6 +117,12 @@
     <ClCompile Include="src\gameMechanics\actions\menuActions\innAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\player\CollectQuest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\inventory\itemMapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\common\DataIO.h">
@@ -246,6 +252,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\gameMechanics\actions\menuActions\innAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\quest\CollectQuest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\inventory\Collectable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\inventory\itemMapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\inventory\ItemType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

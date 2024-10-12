@@ -8,6 +8,8 @@
 #include "quest/HuntingQuest.h"
 #include "enemies/Enemies.h"
 #include "inventory/Equippable.h"
+#include "quest/CollectQuest.h"
+#include "inventory/itemType.h"
 
 class Mage : public Player {
 public:
@@ -41,10 +43,11 @@ private:
 
 	void initializeInventory()
 	{
-		m_inventory.addItem(std::make_unique<Equippable>("Wooden Sword", 10, 1, 10, 1, 1, "Weapon"));
-		m_inventory.addItem(std::make_unique<Equippable>("Plate Armor", 10, 1, 8, 1, 1, "Armor"));
-		m_inventory.addItem(std::make_unique<Equippable>("Bronze Necklace", 10, 1, 5, 1, 1, "Accessory"));
-		m_inventory.addItem(std::make_unique<HealthPotion>("Small Potion", 5, 2, 30));
+		m_inventory.addItem(std::make_unique<Equippable>(ItemType::WoodenSword, "Wooden Sword", 10, 1, 10, 1, 1, "Weapon"));
+		m_inventory.addItem(std::make_unique<Equippable>(ItemType::PlateArmor, "Plate Armor", 10, 1, 8, 1, 1, "Armor"));
+		m_inventory.addItem(std::make_unique<Equippable>(ItemType::BronzeNecklace, "Bronze Necklace", 10, 1, 5, 1, 1, "Accessory"));
+		m_inventory.addItem(std::make_unique<HealthPotion>(ItemType::SHealthPotion, "Small Potion", 5, 2, 30));
 		m_journal.addQuest(std::make_unique<HuntingQuest>("Hunting Quest", "Kill the Wolves!", "You have to kill Wolves", 50, 50, std::vector<std::string>{}, "Wolf", 1));
+		m_journal.addQuest(std::make_unique<CollectQuest>("Collect Quest", "Collect a wolves claw!", "You have to kill Wolves to obtain claw", 50, 50, std::vector<std::string>{}, ItemType::WolfsClaw, 1));
 	}
 };

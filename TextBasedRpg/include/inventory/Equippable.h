@@ -1,6 +1,7 @@
 #pragma once
 #include "InventoryItem.h"
 #include <string>
+#include "ItemType.h"
 
 class Equippable : public InventoryItem
 {
@@ -11,8 +12,8 @@ protected:
 	std::string slot;
 
 public:
-	Equippable(std::string name, int value, int quantity, int potency, int minLevel, int enhancementLevel, std::string slot)
-		: InventoryItem(name, value, quantity), potency(potency), minLevel(minLevel), enhancementLevel(enhancementLevel), slot(slot) {}
+	Equippable(ItemType type, std::string name, int value, int quantity, int potency, int minLevel, int enhancementLevel, std::string slot)
+		: InventoryItem(type, name, value, quantity), potency(potency), minLevel(minLevel), enhancementLevel(enhancementLevel), slot(slot) {}
 
 	void equipItem(Player&);
 	void unequipItem(Player&);
